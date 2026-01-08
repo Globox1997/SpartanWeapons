@@ -128,9 +128,9 @@ public class ItemInit {
             }
         }
         for (String woodHandle : ItemInit.WOOD_MATERIALS) {
-            register(woodHandle + "_spear", new Spear(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-            register(woodHandle + "_club", new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-            register(woodHandle + "_staff", new Staff(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
+            register(woodHandle + "_spear", new Spear(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 3, -3.0f))));
+            register(woodHandle + "_club", new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Club.createAttributeModifiers(ToolMaterials.WOOD, 4, -3.2f))));
+            register(woodHandle + "_staff", new Staff(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Staff.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.4f))));
         }
 
         Registry.register(Registries.ITEM_GROUP, SPARTANWEAPONS_ITEM_GROUP,

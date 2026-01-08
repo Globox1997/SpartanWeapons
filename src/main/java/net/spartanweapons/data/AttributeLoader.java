@@ -34,12 +34,14 @@ public class AttributeLoader implements DataProvider {
                 futures.add(saveAttribute(writer, path, "bettercombat:dagger"));
             } else if (path.contains("dagger")) {
                 futures.add(saveAttribute(writer, path, "spartanweapons:dagger"));
-            }else if (path.contains("javelin")) {
+            } else if (path.contains("javelin")) {
                 futures.add(saveAttribute(writer, path, "bettercombat:trident"));
-            }else if (path.contains("staff")) {
+            } else if (path.contains("staff")) {
                 futures.add(saveAttribute(writer, path, "bettercombat:battlestaff"));
-            }else if (path.contains("battle_axe")) {
+            } else if (path.contains("battle_axe")) {
                 futures.add(saveAttribute(writer, path, "bettercombat:heavy_axe"));
+            } else if (path.contains("club")) {
+                futures.add(saveAttribute(writer, path, "bettercombat:mace"));
             }
         }
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
