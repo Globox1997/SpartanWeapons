@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "s": {
+      "item": "spartanweapons:acacia_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " l ",
+    "  s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:acacia_pole"
+  }
+}

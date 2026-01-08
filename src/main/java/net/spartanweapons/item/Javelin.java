@@ -1,7 +1,5 @@
 package net.spartanweapons.item;
 
-import java.util.function.Supplier;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,6 +15,8 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.world.World;
 import net.spartanweapons.entity.JavelinEntity;
+
+import java.util.function.Supplier;
 
 public class Javelin extends SwordItem {
 
@@ -43,7 +43,6 @@ public class Javelin extends SwordItem {
                 if (!world.isClient()) {
                     stack.damage(1, playerEntity, LivingEntity.getSlotForHand(user.getActiveHand()));
                     JavelinEntity javelinEntity = new JavelinEntity(world, playerEntity, stack);
-                    playerEntity.getX();
                     javelinEntity.setVelocity(playerEntity, playerEntity.getPitch(), playerEntity.getYaw(), 0.0F, 2.5F, 1.0F);
                     if (playerEntity.isCreative()) {
                         javelinEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;

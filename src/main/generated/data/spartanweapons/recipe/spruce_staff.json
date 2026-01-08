@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:spruce_planks"
+    },
+    "s": {
+      "item": "spartanweapons:spruce_stick"
+    }
+  },
+  "pattern": [
+    "s",
+    "b",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:spruce_staff"
+  }
+}

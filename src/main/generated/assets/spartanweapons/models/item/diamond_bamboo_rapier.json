@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/rapier",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/rapiers/diamond_rapier",
+    "layer1": "spartanweapons:item/rapiers/alt_wood/rapier_bamboo"
+  }
+}

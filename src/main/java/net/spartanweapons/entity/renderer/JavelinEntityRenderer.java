@@ -27,22 +27,23 @@ public class JavelinEntityRenderer extends EntityRenderer<JavelinEntity> {
     }
 
     @Override
-    public void render(JavelinEntity javelin_Entity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
+    public void render(JavelinEntity javelinEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
         matrixStack.push();
 
-        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(g, javelin_Entity.prevYaw, javelin_Entity.getYaw()) - 90.0F));
-        matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(g, javelin_Entity.prevPitch, javelin_Entity.getPitch()) + -45.0F));
+        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(g, javelinEntity.prevYaw, javelinEntity.getYaw()) - 90.0F));
+        matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(g, javelinEntity.prevPitch, javelinEntity.getPitch()) + -45.0F));
 
         matrixStack.translate(-0.3D, -0.15D, 0.0D);
+        matrixStack.scale(1.47f,1.47f,0.85f);
         // Use GUI type cause it isn't used for this type
-        this.itemRenderer.renderItem(javelin_Entity.getStack(), ModelTransformationMode.GUI, i, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, javelin_Entity.getWorld(),
-                javelin_Entity.getId());
+        this.itemRenderer.renderItem(javelinEntity.getStack(), ModelTransformationMode.GUI, i, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, javelinEntity.getWorld(),
+                javelinEntity.getId());
         matrixStack.pop();
-        super.render(javelin_Entity, f, g, matrixStack, vertexConsumerProvider, i);
+        super.render(javelinEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 
     @Override
-    public Identifier getTexture(JavelinEntity javelin_Entity) {
+    public Identifier getTexture(JavelinEntity javelinEntity) {
         return SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE;
     }
 

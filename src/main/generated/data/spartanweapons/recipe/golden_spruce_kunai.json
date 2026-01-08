@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:gold_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:spruce_stick"
+    },
+    "x": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    "xi",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:golden_spruce_kunai"
+  }
+}

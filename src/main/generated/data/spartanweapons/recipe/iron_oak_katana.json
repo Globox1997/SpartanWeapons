@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " i",
+    "ii",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_oak_katana"
+  }
+}

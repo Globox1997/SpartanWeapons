@@ -1,44 +1,41 @@
 package net.spartanweapons.init;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedHashMap;
-import java.util.Map;
-
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterials;
+import net.minecraft.component.type.AttributeModifierSlot;
+import net.minecraft.component.type.AttributeModifiersComponent;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.attribute.EntityAttribute;
+import net.minecraft.entity.attribute.EntityAttributeModifier;
+import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
+import net.minecraft.registry.entry.RegistryEntry;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.spartanweapons.SpartanWeaponsMain;
+import net.spartanweapons.entity.JavelinEntity;
+import net.spartanweapons.entity.KunaiEntity;
 import net.spartanweapons.item.*;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
 
 public class ItemInit {
 
     // Item Group
-    public static final RegistryKey<ItemGroup> SPARTANWEAPONS_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, Identifier.of("spartanweapons", "item_group"));
+    public static final RegistryKey<ItemGroup> SPARTANWEAPONS_ITEM_GROUP = RegistryKey.of(RegistryKeys.ITEM_GROUP, SpartanWeaponsMain.identifierOf("item_group"));
+    // Bonus
+    public static final Identifier ATTACK_BONUS_MODIFIER_ID = SpartanWeaponsMain.identifierOf("attack_bonus");
     // Lists
-    public static final ArrayList<String> WOOD_MATERIALS = new ArrayList<String>(
+    public static final ArrayList<String> WOOD_MATERIALS = new ArrayList<>(
             Arrays.asList("acacia", "bamboo", "birch", "cherry", "crimson", "dark_oak", "jungle", "mangrove", "oak", "spruce", "warped"));
-    public static final ArrayList<String> MATERIALS = new ArrayList<String>(Arrays.asList("wooden", "stone", "iron", "golden", "diamond", "netherite"));
-    public static final ArrayList<String> ITEM_STRINGS = new ArrayList<String>(Arrays.asList("cutlass", "dagger", "glaive", "greatsword", "halberd", "katana", "mace", "rapier", "scythe", "spear",
-            "club", "spear", "staff", "battle_axe", "kunai", "javelin", "stick", "pole"));
-
-    // public static final ArrayList<String> STICKS = new ArrayList<String>(
-    // Arrays.asList("acacia_stick", "bamboo_stick", "birch_stick", "cherry_stick", "crimson_stick", "dark_oak_stick", "jungle_stick", "mangrove_stick", "spruce_stick", "warped_stick"));
-    // Unused
-    // public static final ArrayList<Item> HANDLES = new ArrayList<Item>();
-
     // Map
     public static final Map<Identifier, Item> ITEMS = new LinkedHashMap<>();
-    // public static final Map<Identifier, Item> HANDLE = new LinkedHashMap<>();
 
     // Sticks
     public static final Item ACACIA_STICK = register("acacia_stick", new Item(new Item.Settings()));
@@ -51,6 +48,9 @@ public class ItemInit {
     public static final Item MANGROVE_STICK = register("mangrove_stick", new Item(new Item.Settings()));
     public static final Item SPRUCE_STICK = register("spruce_stick", new Item(new Item.Settings()));
     public static final Item WARPED_STICK = register("warped_stick", new Item(new Item.Settings()));
+
+    public static final ArrayList<Item> STICKS = new ArrayList<>(Arrays.asList(ItemInit.ACACIA_STICK, ItemInit.BAMBOO_STICK, ItemInit.BIRCH_STICK, ItemInit.CHERRY_STICK,
+            ItemInit.CRIMSON_STICK, ItemInit.DARK_OAK_STICK, ItemInit.JUNGLE_STICK, ItemInit.MANGROVE_STICK, ItemInit.SPRUCE_STICK, ItemInit.WARPED_STICK));
 
     // Staff
     public static final Item ACACIA_POLE = register("acacia_pole", new Item(new Item.Settings()));
@@ -65,240 +65,111 @@ public class ItemInit {
     public static final Item SPRUCE_POLE = register("spruce_pole", new Item(new Item.Settings()));
     public static final Item WARPED_POLE = register("warped_pole", new Item(new Item.Settings()));
 
-    // public static final SmallAxeItem WOODEN_SMALL_AXE_ITEM = register("wooden_small_axe",
-    // new SmallAxeItem(ToolMaterials.WOOD,
-    // new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f).with(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
-    // new EntityAttributeModifier(SmallAxeItem.ATTACK_BONUS_MODIFIER_ID, 1.0D, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND))));
-
-    // public static final SmallAxeItem WOODEN_SMALL_AXE_ITEM = register("wooden_small_axe",
-    // new SmallAxeItem(ToolMaterials.WOOD,
-    // new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f).with(EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
-    // new EntityAttributeModifier(SmallAxeItem.ATTACK_BONUS_MODIFIER_ID, 1.0D, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND))));
-    // Club
-    public static final Item ACACIA_CLUB = register("acacia_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item BAMBOO_CLUB = register("bamboo_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item BIRCH_CLUB = register("birch_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item CHERRY_CLUB = register("cherry_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item CRIMSON_CLUB = register("crimson_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item DARK_OAK_CLUB = register("dark_oak_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item JUNGLE_CLUB = register("jungle_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item MANGROVE_CLUB = register("mangrove_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item OAK_CLUB = register("oak_club", new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item SPRUCE_CLUB = register("spruce_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item WARPED_CLUB = register("warped_club",
-            new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-
-    // Cutlass
-    // public static final Item WOODEN_CUTLASS = register("wooden_cutlass", new Cutlass(ToolMaterials.WOOD, new
-    // Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    // public static final Item STONE_CUTLASS = register("stone_cutlass", new Cutlass(ToolMaterials.STONE, new
-    // Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item IRON_CUTLASS = register("iron_cutlass",
-            new Cutlass(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item GOLDEN_CUTLASS = register("golden_cutlass",
-            new Cutlass(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item DIAMOND_CUTLASS = register("diamond_cutlass",
-            new Cutlass(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item NETHERITE_CUTLASS = register("netherite_cutlass",
-            new Cutlass(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f)).fireproof()));
-
-    // public static final Item CUTLASS_OAK = registerHandleItem("cutlass_oak", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_ACACIA = registerHandleItem("cutlass_acacia", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_BAMBOO = registerHandleItem("cutlass_bamboo", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_BIRCH = registerHandleItem("cutlass_birch", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_CHERRY = registerHandleItem("cutlass_cherry", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_CRIMSON = registerHandleItem("cutlass_crimson", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_DARK_OAK = registerHandleItem("cutlass_dark_oak", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_JUNGLE = registerHandleItem("cutlass_jungle", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_MANGROVE = registerHandleItem("cutlass_mangrove", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_SPRUCE = registerHandleItem("cutlass_spruce", new Item(new Item.Settings()));
-    // public static final Item CUTLASS_WARPED = registerHandleItem("cutlass_warped", new Item(new Item.Settings()));
-    // Dagger
-    // public static final Item WOODEN_DAGGER = register("wooden_dagger", new Dagger(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
-    // 5, -2.9f))));
-    // public static final Item STONE_DAGGER = register("stone_dagger", new Dagger(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
-    // 5, -2.9f))));
-    public static final Item IRON_DAGGER = register("iron_dagger",
-            new Dagger(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.6f))));
-    public static final Item GOLDEN_DAGGER = register("golden_dagger",
-            new Dagger(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.6f))));
-    public static final Item DIAMOND_DAGGER = register("diamond_dagger",
-            new Dagger(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.6f))));
-    public static final Item NETHERITE_DAGGER = register("netherite_dagger",
-            new Dagger(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.6f)).fireproof()));
-    //
-
-    // Glaive
-    // public static final Item WOODEN_GLAIVE = register("wooden_glaive", new Glaive(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
-    // 5, -2.9f))));
-    // public static final Item STONE_GLAIVE = register("stone_glaive", new Glaive(ToolMaterials.STONE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD,
-    // 5, -2.9f))));
-    public static final Item IRON_GLAIVE = register("iron_glaive",
-            new Glaive(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.6f))));
-    public static final Item GOLDEN_GLAIVE = register("golden_glaive",
-            new Glaive(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.6f))));
-    public static final Item DIAMOND_GLAIVE = register("diamond_glaive",
-            new Glaive(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.6f))));
-    public static final Item NETHERITE_GLAIVE = register("netherite_glaive",
-            new Glaive(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.6f)).fireproof()));
-
-    // Greatsword
-    public static final Item IRON_GREATSWORD = register("iron_greatsword",
-            new GreatSword(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 7, -3.2f))));
-    public static final Item GOLDEN_GREATSWORD = register("golden_greatsword",
-            new GreatSword(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 7, -3.2f))));
-    public static final Item DIAMOND_GREATSWORD = register("diamond_greatsword",
-            new GreatSword(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 7, -3.2f))));
-    public static final Item NETHERITE_GREATSWORD = register("netherite_greatsword",
-            new GreatSword(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 7, -3.2f)).fireproof()));
-
-    // Halberd
-    public static final Item IRON_HALBERD = register("iron_halberd",
-            new Halberd(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item GOLDEN_HALBERD = register("golden_halberd",
-            new Halberd(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item DIAMOND_HALBERD = register("diamond_halberd",
-            new Halberd(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item NETHERITE_HALBERD = register("netherite_halberd",
-            new Halberd(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f)).fireproof()));
-
-    // Katana
-    public static final Item IRON_KATANA = register("iron_katana",
-            new Katana(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.3f))));
-    public static final Item GOLDEN_KATANA = register("golden_katana",
-            new Katana(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.3f))));
-    public static final Item DIAMOND_KATANA = register("diamond_katana",
-            new Katana(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.3f))));
-    public static final Item NETHERITE_KATANA = register("netherite_katana",
-            new Katana(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.3f)).fireproof()));
-
-    // Mace
-    public static final Item IRON_MACE = register("iron_mace", new Mace(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 9, -3.2f))));
-    public static final Item GOLDEN_MACE = register("golden_mace",
-            new Mace(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 9, -3.2f))));
-    public static final Item DIAMOND_MACE = register("diamond_mace",
-            new Mace(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 9, -3.2f))));
-    public static final Item NETHERITE_MACE = register("netherite_mace",
-            new Mace(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 9, -3.2f)).fireproof()));
-
-    // Rapier
-    public static final Item IRON_RAPIER = register("iron_rapier",
-            new Rapier(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 1, -2.0f))));
-    public static final Item GOLDEN_RAPIER = register("golden_rapier",
-            new Rapier(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 1, -2.0f))));
-    public static final Item DIAMOND_RAPIER = register("diamond_rapier",
-            new Rapier(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 1, -2.0f))));
-    public static final Item NETHERITE_RAPIER = register("netherite_rapier",
-            new Rapier(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 1, -2.0f)).fireproof()));
-
-    // Scythe
-    public static final Item IRON_SCYTHE = register("iron_scythe",
-            new Scythe(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item GOLDEN_SCYTHE = register("golden_scythe",
-            new Scythe(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item DIAMOND_SCYTHE = register("diamond_scythe",
-            new Scythe(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f))));
-    public static final Item NETHERITE_SCYTHE = register("netherite_scythe",
-            new Scythe(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 6, -3.0f)).fireproof()));
-
-    // Spear
-    public static final Item IRON_SPEAR = register("iron_spear",
-            new Spear(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item GOLDEN_SPEAR = register("golden_spear",
-            new Spear(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item DIAMOND_SPEAR = register("diamond_spear",
-            new Spear(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f))));
-    public static final Item NETHERITE_SPEAR = register("netherite_spear",
-            new Spear(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.8f)).fireproof()));
-
-    // Battle Axe
-    public static final Item IRON_BATTLE_AXE = register("iron_battle_axe",
-            new BattleAxe(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.5f))));
-    public static final Item GOLDEN_BATTLE_AXE = register("golden_battle_axe",
-            new BattleAxe(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.5f))));
-    public static final Item DIAMOND_BATTLE_AXE = register("diamond_battle_axe",
-            new BattleAxe(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.5f))));
-    public static final Item NETHERITE_BATTLE_AXE = register("netherite_battle_axe",
-            new BattleAxe(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 4, -2.5f)).fireproof()));
-
-    // Javelin
-    public static final Item IRON_JAVELIN = register("iron_javelin",
-            new Javelin(ToolMaterials.IRON, () -> EntityInit.IRON_JAVELIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.4f))));
-    public static final Item GOLDEN_JAVELIN = register("golden_javelin",
-            new Javelin(ToolMaterials.GOLD, () -> EntityInit.GOLDEN_JAVELIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.4f))));
-    public static final Item DIAMOND_JAVELIN = register("diamond_javelin",
-            new Javelin(ToolMaterials.DIAMOND, () -> EntityInit.DIAMOND_JAVELIN, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.4f))));
-    public static final Item NETHERITE_JAVELIN = register("netherite_javelin", new Javelin(ToolMaterials.NETHERITE, () -> EntityInit.NETHERITE_JAVELIN,
-            new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 2, -2.4f)).fireproof()));
-
-    // Kunai
-    public static final Item IRON_KUNAI = register("iron_kunai",
-            new Kunai(ToolMaterials.IRON, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.8f))));
-    public static final Item GOLDEN_KUNAI = register("golden_kunai",
-            new Kunai(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.8f))));
-    public static final Item DIAMOND_KUNAI = register("diamond_kunai",
-            new Kunai(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.8f))));
-    public static final Item NETHERITE_KUNAI = register("netherite_kunai",
-            new Kunai(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 0, -1.8f)).fireproof()));
-
-    // Staff
-    public static final Item ACACIA_STAFF = register("acacia_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item BAMBOO_STAFF = register("bamboo_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item BIRCH_STAFF = register("birch_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item CHERRY_STAFF = register("cherry_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item CRIMSON_STAFF = register("crimson_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item DARK_OAK_STAFF = register("dark_oak_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item JUNGLE_STAFF = register("jungle_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item MANGROVE_STAFF = register("mangrove_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item OAK_STAFF = register("oak_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item SPRUCE_STAFF = register("spruce_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-    public static final Item WARPED_STAFF = register("warped_staff",
-            new Stave(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(SwordItem.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
-
-    public static <I extends Item> I register(String name, I item) {
-        ITEMS.put(Identifier.of("spartanweapons", name), item);
+    public static Item register(String name, Item item) {
+        ITEMS.put(SpartanWeaponsMain.identifierOf(name), item);
         return item;
     }
 
-    // public static <I extends Item> I registerHandleItem(String name, I item) {
-    // HANDLES.add(item);
-    // Registry.register(Registries.ITEM, new Identifier("spartanweapons", name), item);
-    // // HANDLE.put(new Identifier("spartanweapons", name), item);
-    // return item;
-    // }
+    public record WeaponType(
+            String suffix,
+            WeaponFactory constructor,
+            int damage,
+            float speed,
+            boolean hasEntity,
+            @Nullable RegistryEntry<EntityAttribute> attribute,
+            @Nullable EntityAttributeModifier modifier,
+            @Nullable AttributeModifierSlot slot,
+            String[] pattern
+    ) {
+    }
+
+    @FunctionalInterface
+    interface WeaponFactory {
+        Item create(ToolMaterial material, Item.Settings settings, String fullId);
+    }
+
+    public static final List<WeaponType> TYPES = List.of(
+            new WeaponType("battle_axe", (material, settings, id) -> new BattleAxe(material, settings), 4, -2.5f, false, null, null, null, new String[]{"iii", "ipi", " s "}),
+            new WeaponType("dagger", (material, settings, id) -> new Dagger(material, settings), 0, -1.6f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, -0.5f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"i", "s"}),
+            new WeaponType("glaive", (material, settings, id) -> new Glaive(material, settings), 4, -2.6f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 2f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"i", "i", "p"}),
+            new WeaponType("greatsword", (material, settings, id) -> new GreatSword(material, settings), 7, -3.2f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 2f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{" i ", " i ", "isi"}),
+            new WeaponType("halberd", (material, settings, id) -> new Halberd(material, settings), 6, -3.0f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 2f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{" i", "ii", "is"}),
+            new WeaponType("katana", (material, settings, id) -> new Katana(material, settings), 4, -2.3f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 1f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{" i", "ii", "s "}),
+            new WeaponType("mace", (material, settings, id) -> new Mace(material, settings), 9, -3.2f, false, null, null, null, new String[]{"b", "i", "s"}),
+            new WeaponType("rapier", (material, settings, id) -> new Rapier(material, settings), 1, -2.0f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 0.5f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"  i", " i ", "s  "}),
+            new WeaponType("scythe", (material, settings, id) -> new Scythe(material, settings), 6, -3.0f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 1.5f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{" ii", "iip", "i s"}),
+            new WeaponType("spear", (material, settings, id) -> new Spear(material, settings), 5, -3.0f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 2.5f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"i", "p"}),
+            new WeaponType("kunai", (material, settings, id) ->
+                    new Kunai(material, () -> (EntityType<KunaiEntity>) EntityInit.ENTITY_TYPES.get(SpartanWeaponsMain.identifierOf(id)), settings), 0, -1.8f, true, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, -0.5f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"xi", "s "}),
+            new WeaponType("javelin", (material, settings, id) ->
+                    new Javelin(material, () -> (EntityType<JavelinEntity>) EntityInit.ENTITY_TYPES.get(SpartanWeaponsMain.identifierOf(id)), settings), 2, -2.4f, true, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 1.0f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{"i", "x", "p"}),
+            new WeaponType("cutlass", (material, settings, id) -> new Cutlass(material, settings), 5, -2.8f, false, EntityAttributes.PLAYER_ENTITY_INTERACTION_RANGE, new EntityAttributeModifier(ATTACK_BONUS_MODIFIER_ID, 1.0f, EntityAttributeModifier.Operation.ADD_VALUE), AttributeModifierSlot.MAINHAND, new String[]{" ii", "i  ", "s  "})
+    );
+
 
     public static void init() {
-        Registry.register(Registries.ITEM_GROUP, SPARTANWEAPONS_ITEM_GROUP,
-                FabricItemGroup.builder().icon(() -> new ItemStack(DIAMOND_CUTLASS)).displayName(Text.translatable("item.spartanweapons.item_group")).build());
+        for (ToolMaterials toolMaterial : ToolMaterials.values()) {
+            if (toolMaterial == ToolMaterials.WOOD || toolMaterial == ToolMaterials.STONE) continue;
 
-        // CompatItems.loadItems();
-        // CompatRecipes.createRecipes();
-        // CompatRecipes.loadRecipes();
+            for (String woodHandle : ItemInit.WOOD_MATERIALS) {
+                for (WeaponType type : TYPES) {
+                    String fullName = getFormattedName(toolMaterial, woodHandle, type.suffix());
+
+                    Item.Settings settings = createWeaponSettings(toolMaterial, type);
+                    if (toolMaterial == ToolMaterials.NETHERITE) settings = settings.fireproof();
+
+                    Item weapon = type.constructor().create(toolMaterial, settings, fullName);
+                    register(fullName, weapon);
+
+                    if (type.hasEntity()) {
+                        registerWeaponEntity(fullName, weapon);
+                    }
+                }
+            }
+        }
+        for (String woodHandle : ItemInit.WOOD_MATERIALS) {
+            register(woodHandle + "_spear", new Spear(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
+            register(woodHandle + "_club", new Club(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
+            register(woodHandle + "_staff", new Staff(ToolMaterials.WOOD, new Item.Settings().attributeModifiers(Spear.createAttributeModifiers(ToolMaterials.WOOD, 5, -2.9f))));
+        }
+
+        Registry.register(Registries.ITEM_GROUP, SPARTANWEAPONS_ITEM_GROUP,
+                FabricItemGroup.builder().icon(() -> new ItemStack(OAK_POLE)).displayName(Text.translatable("item.spartanweapons.item_group")).build());
+
         for (Identifier id : ITEMS.keySet()) {
             Registry.register(Registries.ITEM, id, ITEMS.get(id));
             ItemGroupEvents.modifyEntriesEvent(SPARTANWEAPONS_ITEM_GROUP).register(entries -> entries.add(ITEMS.get(id)));
         }
-        // for (Identifier id : HANDLE.keySet()) {
-        // Registry.register(Registries.ITEM, id, HANDLE.get(id));
-        // }
     }
+
+    public static String getFormattedName(ToolMaterials mat, String wood, String suffix) {
+        String matName = mat.name().toLowerCase();
+        if (matName.equals("gold")) matName = "golden";
+        return matName + "_" + wood + "_" + suffix;
+    }
+
+    private static Item.Settings createWeaponSettings(ToolMaterial mat, WeaponType type) {
+        AttributeModifiersComponent modifiers = SwordItem.createAttributeModifiers(mat, type.damage(), type.speed());
+
+        if (type.attribute() != null && type.modifier() != null) {
+            modifiers = modifiers.with(type.attribute(), type.modifier(), type.slot());
+        }
+
+        return new Item.Settings().attributeModifiers(modifiers);
+    }
+
+    private static void registerWeaponEntity(String id, Item item) {
+        EntityType type = null;
+        if (item instanceof Javelin) {
+            type = EntityType.Builder.<JavelinEntity>create(
+                    (entity, world) -> new JavelinEntity(entity, world, (Javelin) item),
+                    SpawnGroup.MISC).dimensions(0.5F, 0.5F).build();
+        } else if (item instanceof Kunai) {
+            type = EntityType.Builder.<KunaiEntity>create(
+                    (entity, world) -> new KunaiEntity(entity, world, (Kunai) item),
+                    SpawnGroup.MISC).dimensions(0.5F, 0.5F).build();
+        }
+        EntityInit.register(id, type);
+    }
+
 }

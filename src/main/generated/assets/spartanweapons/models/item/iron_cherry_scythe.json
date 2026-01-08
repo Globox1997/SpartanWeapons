@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/scythe",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/scythes/iron_scythe",
+    "layer1": "spartanweapons:item/scythes/alt_wood/scythe_cherry"
+  }
+}

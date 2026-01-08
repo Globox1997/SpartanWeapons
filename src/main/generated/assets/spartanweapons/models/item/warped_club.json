@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "spartanweapons:item/clubs/warped_club"
+  }
+}

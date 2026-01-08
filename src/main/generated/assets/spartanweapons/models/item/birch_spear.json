@@ -1,0 +1,7 @@
+{
+  "parent": "spartanweapons:item/spear",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/spears/birch_spear"
+  }
+}

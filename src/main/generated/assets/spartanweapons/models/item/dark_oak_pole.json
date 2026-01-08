@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "spartanweapons:item/poles/dark_oak_pole"
+  }
+}

@@ -27,7 +27,7 @@ import java.util.Map;
 @Mixin(RecipeManager.class)
 public class RecipeManagerMixin {
 
-    private static final ItemStack STICK = new ItemStack(Items.STICK);
+//    private static final ItemStack STICK = new ItemStack(Items.STICK);
 
     // @Inject(method = "apply", at = @At(value = "INVOKE_ASSIGN", target = "Lnet/minecraft/recipe/RecipeManager;deserialize(Lnet/minecraft/util/Identifier;Lcom/google/gson/JsonObject;)Lnet/minecraft/recipe/Recipe;"), locals = LocalCapture.CAPTURE_FAILSOFT)
     // private void applyMixin(Map<Identifier, JsonElement> map, ResourceManager resourceManager, Profiler profiler, CallbackInfo info, Map map2, ImmutableMap.Builder builder, Iterator var6,

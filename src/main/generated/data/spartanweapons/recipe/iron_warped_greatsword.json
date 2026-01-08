@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:warped_stick"
+    }
+  },
+  "pattern": [
+    " i ",
+    " i ",
+    "isi"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_warped_greatsword"
+  }
+}

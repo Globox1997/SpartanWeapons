@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "spartanweapons:warped_stick"
+    }
+  },
+  "pattern": [
+    " i ",
+    " i ",
+    "isi"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_warped_greatsword"
+  }
+}

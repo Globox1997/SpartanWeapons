@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "spartanweapons:dark_oak_stick"
+    },
+    "x": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    "xi",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_dark_oak_kunai"
+  }
+}

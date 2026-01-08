@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:crimson_planks"
+    },
+    "s": {
+      "item": "spartanweapons:crimson_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " sb",
+    " bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:crimson_spear"
+  }
+}

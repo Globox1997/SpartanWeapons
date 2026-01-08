@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "s": {
+      "item": "spartanweapons:dark_oak_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " l ",
+    "  s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:dark_oak_pole"
+  }
+}

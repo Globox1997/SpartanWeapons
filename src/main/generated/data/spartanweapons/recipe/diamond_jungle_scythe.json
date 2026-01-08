@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "p": {
+      "item": "spartanweapons:jungle_pole"
+    },
+    "s": {
+      "item": "spartanweapons:jungle_stick"
+    }
+  },
+  "pattern": [
+    " ii",
+    "iip",
+    "i s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_jungle_scythe"
+  }
+}

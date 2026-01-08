@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "p": {
+      "item": "spartanweapons:warped_pole"
+    }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_warped_glaive"
+  }
+}

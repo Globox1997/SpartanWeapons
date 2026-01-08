@@ -25,6 +25,9 @@
 		],
 		"modmenu": [
 			"net.spartanweapons.config.ModMenuIntegration"
+		],
+		"fabric-datagen": [
+			"net.spartanweapons.SpartanWeaponsDataGenerator"
 		]
 	},
 	"mixins": [

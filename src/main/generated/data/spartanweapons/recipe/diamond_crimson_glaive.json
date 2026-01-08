@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "p": {
+      "item": "spartanweapons:crimson_pole"
+    }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_crimson_glaive"
+  }
+}

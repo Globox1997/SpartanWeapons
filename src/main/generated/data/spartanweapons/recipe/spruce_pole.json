@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "l": {
+      "item": "minecraft:leather"
+    },
+    "s": {
+      "item": "spartanweapons:spruce_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " l ",
+    "  s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:spruce_pole"
+  }
+}

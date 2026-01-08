@@ -14,4 +14,5 @@ public class SpartanWeaponsConfig implements ConfigData {
     // @ConfigEntry.Gui.RequiresRestart
     // @Comment("Use for mod compatibility")
     // public boolean change_slot_arrangement = false;
+//    public float stickDropChance = 0.02f;
 }

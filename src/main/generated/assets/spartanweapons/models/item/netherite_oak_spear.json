@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/spear",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/spears/netherite_spear",
+    "layer1": "spartanweapons:item/spears/alt_wood/spear_oak"
+  }
+}

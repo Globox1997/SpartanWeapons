@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:warped_planks"
+    },
+    "s": {
+      "item": "spartanweapons:warped_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " bs",
+    " sb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:warped_club"
+  }
+}

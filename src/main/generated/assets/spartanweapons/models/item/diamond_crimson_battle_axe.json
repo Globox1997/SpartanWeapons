@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/battle_axe",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/battleaxes/diamond_battle_axe",
+    "layer1": "spartanweapons:item/battleaxes/alt_wood/battle_axe_crimson"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/kunai",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/kunais/netherite_kunai",
+    "layer1": "spartanweapons:item/kunais/alt_wood/kunai_acacia"
+  }
+}

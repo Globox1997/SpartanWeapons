@@ -1,0 +1,7 @@
+{
+  "parent": "spartanweapons:item/javelin_throwing",
+  "textures": {
+    "layer0": "spartanweapons:item/javelins/iron_javelin",
+    "layer1": "spartanweapons:item/javelins/alt_wood/javelin_acacia"
+  }
+}

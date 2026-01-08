@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:gold_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:dark_oak_stick"
+    }
+  },
+  "pattern": [
+    "i",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:golden_dark_oak_dagger"
+  }
+}

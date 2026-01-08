@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/halberd",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/halberds/golden_halberd",
+    "layer1": "spartanweapons:item/halberds/alt_wood/halberd_bamboo"
+  }
+}

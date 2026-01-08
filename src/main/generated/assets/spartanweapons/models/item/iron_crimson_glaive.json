@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/glaive",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/glaives/iron_glaive",
+    "layer1": "spartanweapons:item/glaives/alt_wood/glaive_crimson"
+  }
+}

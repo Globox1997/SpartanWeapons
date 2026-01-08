@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:gold_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:dark_oak_pole"
+    }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:golden_dark_oak_glaive"
+  }
+}

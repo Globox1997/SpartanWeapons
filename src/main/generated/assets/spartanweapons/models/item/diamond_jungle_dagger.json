@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/dagger",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/daggers/diamond_dagger",
+    "layer1": "spartanweapons:item/daggers/alt_wood/dagger_jungle"
+  }
+}

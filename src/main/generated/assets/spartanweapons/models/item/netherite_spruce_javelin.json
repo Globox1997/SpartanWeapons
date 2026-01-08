@@ -1,0 +1,15 @@
+{
+  "parent": "spartanweapons:item/javelin",
+  "overrides": [
+    {
+      "model": "spartanweapons:item/netherite_spruce_javelin_throwing",
+      "predicate": {
+        "throwing": 1.0
+      }
+    }
+  ],
+  "textures": {
+    "layer0": "spartanweapons:item/javelins/netherite_javelin",
+    "layer1": "spartanweapons:item/javelins/alt_wood/javelin_spruce"
+  }
+}

@@ -55,7 +55,7 @@ public class JavelinEntity extends PersistentProjectileEntity implements FlyingI
     }
 
     public JavelinEntity(World world, double x, double y, double z, ItemStack stack) {
-        super(((Javelin) stack.getItem()).getType(), z, z, z, world, stack, stack);
+        super(((Javelin) stack.getItem()).getType(), x, y, z, world, stack, stack);
         this.javelin = stack;
         this.dataTracker.set(LOYALTY, this.getLoyalty(stack));
         this.dataTracker.set(ENCHANTMENT_GLINT, stack.hasGlint());
@@ -194,16 +194,18 @@ public class JavelinEntity extends PersistentProjectileEntity implements FlyingI
     @Override
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
-        nbt.put("javelin", this.javelin.encode(this.getRegistryManager()));
+        if (!this.javelin.isEmpty()) {
+            nbt.put("javelin", this.javelin.encode(this.getRegistryManager()));
 
-        NbtList tags = new NbtList();
-        for (UUID uuid : this.piercedEntities) {
-            NbtCompound c = new NbtCompound();
-            c.putUuid("UUID", uuid);
-            tags.add(c);
+            NbtList tags = new NbtList();
+            for (UUID uuid : this.piercedEntities) {
+                NbtCompound c = new NbtCompound();
+                c.putUuid("UUID", uuid);
+                tags.add(c);
+            }
+            nbt.putBoolean("DealtDamage", this.dealtDamage);
+            nbt.put("javelin_hit", tags);
         }
-        nbt.putBoolean("DealtDamage", this.dealtDamage);
-        nbt.put("javelin_hit", tags);
     }
 
     @Override

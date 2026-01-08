@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_acacia_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "spartanweapons:acacia_stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartanweapons:acacia_pole"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_acacia_stick"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartanweapons:acacia_pole"
+    ]
+  }
+}

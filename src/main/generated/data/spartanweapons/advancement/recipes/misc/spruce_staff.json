@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_spruce_stick": {
+      "conditions": {
+        "items": [
+          {
+            "items": "spartanweapons:spruce_stick"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartanweapons:spruce_staff"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_spruce_stick"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartanweapons:spruce_staff"
+    ]
+  }
+}

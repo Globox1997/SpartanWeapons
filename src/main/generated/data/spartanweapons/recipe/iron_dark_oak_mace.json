@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "b": {
+      "item": "minecraft:iron_block"
+    },
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:dark_oak_stick"
+    }
+  },
+  "pattern": [
+    "b",
+    "i",
+    "s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_dark_oak_mace"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    " ii",
+    "i  ",
+    "s  "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_oak_cutlass"
+  }
+}

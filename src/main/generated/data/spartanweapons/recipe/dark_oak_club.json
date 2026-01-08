@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:dark_oak_planks"
+    },
+    "s": {
+      "item": "spartanweapons:dark_oak_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " bs",
+    " sb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:dark_oak_club"
+  }
+}

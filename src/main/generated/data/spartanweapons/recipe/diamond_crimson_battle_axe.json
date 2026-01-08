@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "p": {
+      "item": "spartanweapons:crimson_pole"
+    },
+    "s": {
+      "item": "spartanweapons:crimson_stick"
+    }
+  },
+  "pattern": [
+    "iii",
+    "ipi",
+    " s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_crimson_battle_axe"
+  }
+}

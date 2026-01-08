@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:oak_planks"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " sb",
+    " bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:oak_spear"
+  }
+}

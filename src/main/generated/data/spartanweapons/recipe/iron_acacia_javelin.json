@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:acacia_pole"
+    },
+    "x": {
+      "item": "minecraft:slime_ball"
+    }
+  },
+  "pattern": [
+    "i",
+    "x",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_acacia_javelin"
+  }
+}

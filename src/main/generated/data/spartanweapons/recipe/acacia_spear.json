@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:acacia_planks"
+    },
+    "s": {
+      "item": "spartanweapons:acacia_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " sb",
+    " bb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:acacia_spear"
+  }
+}

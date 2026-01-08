@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:netherite_ingot"
+  },
+  "base": {
+    "item": "spartanweapons:diamond_oak_kunai"
+  },
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:netherite_oak_kunai"
+  },
+  "template": {
+    "item": "minecraft:netherite_upgrade_smithing_template"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:warped_pole"
+    },
+    "s": {
+      "item": "spartanweapons:warped_stick"
+    }
+  },
+  "pattern": [
+    " ii",
+    "iip",
+    "i s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_warped_scythe"
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/katana",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/katanas/diamond_katana",
+    "layer1": "spartanweapons:item/katanas/alt_wood/katana_dark_oak"
+  }
+}

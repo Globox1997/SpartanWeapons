@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:acacia_stick"
+    }
+  },
+  "pattern": [
+    " i",
+    "ii",
+    "is"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_acacia_halberd"
+  }
+}

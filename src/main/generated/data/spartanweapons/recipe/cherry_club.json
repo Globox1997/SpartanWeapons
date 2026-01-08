@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "b": {
+      "item": "minecraft:cherry_planks"
+    },
+    "s": {
+      "item": "spartanweapons:cherry_stick"
+    }
+  },
+  "pattern": [
+    "s  ",
+    " bs",
+    " sb"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:cherry_club"
+  }
+}

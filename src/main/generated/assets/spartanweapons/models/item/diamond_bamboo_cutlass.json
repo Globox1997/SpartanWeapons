@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/cutlass",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/cutlasses/diamond_cutlass",
+    "layer1": "spartanweapons:item/cutlasses/alt_wood/cutlass_bamboo"
+  }
+}

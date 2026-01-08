@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:mangrove_pole"
+    }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_mangrove_glaive"
+  }
+}

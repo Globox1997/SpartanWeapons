@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:diamond"
+    },
+    "s": {
+      "item": "spartanweapons:spruce_stick"
+    }
+  },
+  "pattern": [
+    " i",
+    "ii",
+    "s "
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:diamond_spruce_katana"
+  }
+}

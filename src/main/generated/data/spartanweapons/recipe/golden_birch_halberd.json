@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:gold_ingot"
+    },
+    "s": {
+      "item": "spartanweapons:birch_stick"
+    }
+  },
+  "pattern": [
+    " i",
+    "ii",
+    "is"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:golden_birch_halberd"
+  }
+}

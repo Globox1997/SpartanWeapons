@@ -1,0 +1,8 @@
+{
+  "parent": "spartanweapons:item/mace",
+  "overrides": [],
+  "textures": {
+    "layer0": "spartanweapons:item/maces/diamond_mace",
+    "layer1": "spartanweapons:item/maces/alt_wood/mace_birch"
+  }
+}

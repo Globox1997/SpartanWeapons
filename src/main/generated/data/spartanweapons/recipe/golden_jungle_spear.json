@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:gold_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:jungle_pole"
+    }
+  },
+  "pattern": [
+    "i",
+    "p"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:golden_jungle_spear"
+  }
+}

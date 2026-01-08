@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "minecraft:iron_ingot"
+    },
+    "p": {
+      "item": "spartanweapons:birch_pole"
+    },
+    "s": {
+      "item": "spartanweapons:birch_stick"
+    }
+  },
+  "pattern": [
+    " ii",
+    "iip",
+    "i s"
+  ],
+  "result": {
+    "count": 1,
+    "id": "spartanweapons:iron_birch_scythe"
+  }
+}
