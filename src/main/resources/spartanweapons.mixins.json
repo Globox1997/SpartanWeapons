@@ -3,13 +3,8 @@
 	"package": "net.spartanweapons.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
-		"RecipeManagerMixin",
-		"CraftingScreenHandlerMixin"
 	],
 	"client": [
-		"client.DrawContextMixin",
-		"client.ItemEntityRendererMixin",
-		"client.ItemRendererMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
