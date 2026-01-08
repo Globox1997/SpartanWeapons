@@ -48,7 +48,7 @@ public class Kunai extends SwordItem {
                         kunaiEntity.pickupType = PersistentProjectileEntity.PickupPermission.CREATIVE_ONLY;
                     }
                     world.spawnEntity(kunaiEntity);
-                    world.playSoundFromEntity(null, kunaiEntity, SoundEvents.ITEM_TRIDENT_THROW.value(), SoundCategory.PLAYERS, 1.0F, 1.0F);
+                    world.playSoundFromEntity(null, kunaiEntity, SoundEvents.ENTITY_ENDER_PEARL_THROW, SoundCategory.PLAYERS, 1.0F, 1.0F);
                     if (!playerEntity.isCreative()) {
                         playerEntity.getInventory().removeOne(stack);
                     }

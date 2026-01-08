@@ -109,7 +109,7 @@ public class KunaiEntity extends PersistentProjectileEntity implements FlyingIte
         } else {
             this.setVelocity(this.getVelocity().multiply(0.75));
         }
-        this.playSound(SoundEvents.ITEM_TRIDENT_HIT, 1.0f, 1.0f);
+        this.playSound(SoundEvents.ENTITY_ARROW_HIT_PLAYER, 1.0f, 1.0f);
     }
 
     @Override
