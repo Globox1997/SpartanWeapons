@@ -4,7 +4,7 @@
     "group": "sticks",
     "key": {
         "#": {
-            "item": "minecraft:mangrove_planks"
+            "item": "minecraft:acacia_planks"
         }
     },
     "pattern": [
@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:mangrove_stick"
+        "id": "spartanweapons:acacia_stick"
     },
     "show_notification": true
 }

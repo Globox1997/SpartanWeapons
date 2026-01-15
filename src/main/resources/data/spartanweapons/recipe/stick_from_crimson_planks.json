@@ -4,7 +4,7 @@
     "group": "sticks",
     "key": {
         "#": {
-            "item": "minecraft:spruce_planks"
+            "item": "minecraft:crimson_planks"
         }
     },
     "pattern": [
@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:spruce_stick"
+        "id": "spartanweapons:crimson_stick"
     },
     "show_notification": true
 }

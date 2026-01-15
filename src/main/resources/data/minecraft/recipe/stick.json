@@ -4,7 +4,7 @@
     "group": "sticks",
     "key": {
         "#": {
-            "item": "minecraft:acacia_planks"
+            "item": "minecraft:oak_planks"
         }
     },
     "pattern": [
@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:acacia_stick"
+        "id": "minecraft:stick"
     },
     "show_notification": true
 }

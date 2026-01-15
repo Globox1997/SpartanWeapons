@@ -4,7 +4,7 @@
     "group": "sticks",
     "key": {
         "#": {
-            "item": "minecraft:warped_planks"
+            "item": "minecraft:jungle_planks"
         }
     },
     "pattern": [
@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:warped_stick"
+        "id": "spartanweapons:jungle_stick"
     },
     "show_notification": true
 }

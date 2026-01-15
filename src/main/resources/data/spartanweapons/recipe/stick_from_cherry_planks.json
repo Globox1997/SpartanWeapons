@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:cherry_stick"
+        "id": "spartanweapons:cherry_stick"
     },
     "show_notification": true
 }

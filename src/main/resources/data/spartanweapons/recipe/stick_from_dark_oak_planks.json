@@ -13,7 +13,7 @@
     ],
     "result": {
         "count": 4,
-        "item": "spartanweapons:dark_oak_stick"
+        "id": "spartanweapons:dark_oak_stick"
     },
     "show_notification": true
 }
