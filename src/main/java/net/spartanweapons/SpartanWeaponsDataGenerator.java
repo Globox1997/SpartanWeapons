@@ -13,6 +13,7 @@ public class SpartanWeaponsDataGenerator implements DataGeneratorEntrypoint {
         pack.addProvider(RecipeLoader::new);
         pack.addProvider(LangLoader::new);
         pack.addProvider(AttributeLoader::new);
-        pack.addProvider(TagLoader::new);
+        pack.addProvider(ItemTagLoader::new);
+        pack.addProvider(EntityTagLoader::new);
     }
 }
