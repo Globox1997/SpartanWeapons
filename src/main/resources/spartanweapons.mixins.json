@@ -3,6 +3,8 @@
 	"package": "net.spartanweapons.mixin",
 	"compatibilityLevel": "JAVA_21",
 	"mixins": [
+		"LivingEntityMixin",
+		"PlayerEntityMixin"
 	],
 	"client": [
 	],
