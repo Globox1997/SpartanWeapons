@@ -1,18 +1,18 @@
 package net.spartanweapons.entity.renderer;
 
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Axis;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
-import net.minecraft.client.render.OverlayTexture;
-import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.entity.EntityRenderer;
-import net.minecraft.client.render.entity.EntityRendererFactory;
-import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.client.render.model.json.ModelTransformationMode;
-import net.minecraft.client.texture.SpriteAtlasTexture;
-import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.util.Identifier;
-import net.minecraft.util.math.MathHelper;
-import net.minecraft.util.math.RotationAxis;
+import net.minecraft.client.renderer.MultiBufferSource;
+import net.minecraft.client.renderer.entity.EntityRenderer;
+import net.minecraft.client.renderer.entity.EntityRendererProvider;
+import net.minecraft.client.renderer.entity.ItemRenderer;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.client.renderer.texture.TextureAtlas;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import net.minecraft.world.item.ItemDisplayContext;
 import net.spartanweapons.entity.JavelinEntity;
 
 @SuppressWarnings("deprecation")
@@ -21,30 +21,30 @@ public class JavelinEntityRenderer extends EntityRenderer<JavelinEntity> {
 
     private final ItemRenderer itemRenderer;
 
-    public JavelinEntityRenderer(EntityRendererFactory.Context context) {
+    public JavelinEntityRenderer(EntityRendererProvider.Context context) {
         super(context);
         this.itemRenderer = context.getItemRenderer();
     }
 
     @Override
-    public void render(JavelinEntity javelinEntity, float f, float g, MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, int i) {
-        matrixStack.push();
+    public void render(JavelinEntity javelinEntity, float f, float g, PoseStack matrixStack, MultiBufferSource vertexConsumerProvider, int i) {
+        matrixStack.pushPose();
 
-        matrixStack.multiply(RotationAxis.POSITIVE_Y.rotationDegrees(MathHelper.lerp(g, javelinEntity.prevYaw, javelinEntity.getYaw()) - 90.0F));
-        matrixStack.multiply(RotationAxis.POSITIVE_Z.rotationDegrees(MathHelper.lerp(g, javelinEntity.prevPitch, javelinEntity.getPitch()) + -45.0F));
+        matrixStack.mulPose(Axis.YP.rotationDegrees(Mth.lerp(g, javelinEntity.yRotO, javelinEntity.getYRot()) - 90.0F));
+        matrixStack.mulPose(Axis.ZP.rotationDegrees(Mth.lerp(g, javelinEntity.xRotO, javelinEntity.getXRot()) + -45.0F));
 
         matrixStack.translate(-0.3D, -0.15D, 0.0D);
         matrixStack.scale(1.47f,1.47f,0.85f);
         // Use GUI type cause it isn't used for this type
-        this.itemRenderer.renderItem(javelinEntity.getStack(), ModelTransformationMode.GUI, i, OverlayTexture.DEFAULT_UV, matrixStack, vertexConsumerProvider, javelinEntity.getWorld(),
+        this.itemRenderer.renderStatic(javelinEntity.getItem(), ItemDisplayContext.GUI, i, OverlayTexture.NO_OVERLAY, matrixStack, vertexConsumerProvider, javelinEntity.level(),
                 javelinEntity.getId());
-        matrixStack.pop();
+        matrixStack.popPose();
         super.render(javelinEntity, f, g, matrixStack, vertexConsumerProvider, i);
     }
 
     @Override
-    public Identifier getTexture(JavelinEntity javelinEntity) {
-        return SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE;
+    public ResourceLocation getTextureLocation(JavelinEntity javelinEntity) {
+        return TextureAtlas.LOCATION_BLOCKS;
     }
 
 }

@@ -1,11 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 
 public class Cutlass extends SwordItem {
 
-    public Cutlass(ToolMaterial toolMaterial, Settings settings) {
+    public Cutlass(Tier toolMaterial, Properties settings) {
         super(toolMaterial, settings);
     }
 

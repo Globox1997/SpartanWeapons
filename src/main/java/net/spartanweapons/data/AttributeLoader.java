@@ -2,10 +2,10 @@ package net.spartanweapons.data;
 
 import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.data.DataWriter;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
+import net.minecraft.resources.ResourceLocation;
 import net.spartanweapons.init.ItemInit;
 
 import java.nio.file.Path;
@@ -16,18 +16,18 @@ import java.util.concurrent.CompletableFuture;
 public class AttributeLoader implements DataProvider {
 
     private final FabricDataOutput dataOutput;
-    private final CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup;
+    private final CompletableFuture<HolderLookup.Provider> registryLookup;
 
-    public AttributeLoader(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public AttributeLoader(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         this.dataOutput = dataOutput;
         this.registryLookup = registryLookup;
     }
 
     @Override
-    public CompletableFuture<?> run(DataWriter writer) {
+    public CompletableFuture<?> run(CachedOutput writer) {
 
         List<CompletableFuture<?>> futures = new ArrayList<>();
-        for (Identifier identifier : ItemInit.ITEMS.keySet()) {
+        for (ResourceLocation identifier : ItemInit.ITEMS.keySet()) {
             String path = identifier.getPath();
 
             if (path.contains("kunai")) {
@@ -47,14 +47,14 @@ public class AttributeLoader implements DataProvider {
         return CompletableFuture.allOf(futures.toArray(new CompletableFuture[0]));
     }
 
-    private CompletableFuture<?> saveAttribute(DataWriter writer, String weaponId, String parentValue) {
+    private CompletableFuture<?> saveAttribute(CachedOutput writer, String weaponId, String parentValue) {
         JsonObject json = new JsonObject();
         json.addProperty("parent", parentValue);
 
-        Identifier id = Identifier.of(dataOutput.getModId(), weaponId);
-        Path path = dataOutput.getResolver(net.minecraft.data.DataOutput.OutputType.DATA_PACK, "weapon_attributes").resolveJson(id);
+        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(dataOutput.getModId(), weaponId);
+        Path path = dataOutput.createPathProvider(net.minecraft.data.PackOutput.Target.DATA_PACK, "weapon_attributes").json(id);
 
-        return DataProvider.writeToPath(writer, json, path);
+        return DataProvider.saveStable(writer, json, path);
     }
 
     @Override

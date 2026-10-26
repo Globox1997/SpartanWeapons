@@ -1,11 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 
 public class Mace extends SwordItem {
 
-    public Mace(ToolMaterial toolMaterial, Settings settings) {
+    public Mace(Tier toolMaterial, Properties settings) {
         super(toolMaterial, settings);
     }
 

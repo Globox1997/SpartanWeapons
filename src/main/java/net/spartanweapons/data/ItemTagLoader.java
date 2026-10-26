@@ -2,10 +2,10 @@ package net.spartanweapons.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
-import net.minecraft.item.Item;
-import net.minecraft.item.SwordItem;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.registry.tag.ItemTags;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
 import net.spartanweapons.init.ItemInit;
 import net.spartanweapons.init.TagInit;
 import net.spartanweapons.item.Javelin;
@@ -14,12 +14,12 @@ import java.util.concurrent.CompletableFuture;
 
 public class ItemTagLoader extends FabricTagProvider.ItemTagProvider {
 
-    public ItemTagLoader(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public ItemTagLoader(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
-    protected void configure(RegistryWrapper.WrapperLookup wrapperLookup) {
+    protected void addTags(HolderLookup.Provider wrapperLookup) {
         for (Item entry : ItemInit.ITEMS.values()) {
             if (entry instanceof SwordItem) {
                 getOrCreateTagBuilder(ItemTags.SWORDS).add(entry);

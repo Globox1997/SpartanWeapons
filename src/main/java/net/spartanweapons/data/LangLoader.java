@@ -2,10 +2,10 @@ package net.spartanweapons.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricLanguageProvider;
-import net.minecraft.item.ToolMaterials;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Tiers;
 import net.spartanweapons.init.EntityInit;
 import net.spartanweapons.init.ItemInit;
 import net.spartanweapons.init.TagInit;
@@ -15,15 +15,15 @@ import java.util.concurrent.CompletableFuture;
 
 public class LangLoader extends FabricLanguageProvider {
 
-    public LangLoader(FabricDataOutput dataOutput, CompletableFuture<RegistryWrapper.WrapperLookup> registryLookup) {
+    public LangLoader(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         super(dataOutput, registryLookup);
     }
 
     @Override
-    public void generateTranslations(RegistryWrapper.WrapperLookup registryLookup, TranslationBuilder translationBuilder) {
-        for (Identifier identifier : ItemInit.ITEMS.keySet()) {
+    public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
+        for (ResourceLocation identifier : ItemInit.ITEMS.keySet()) {
             String displayName = getDisplayName(identifier.getPath());
-            translationBuilder.add(Registries.ITEM.get(identifier), displayName);
+            translationBuilder.add(BuiltInRegistries.ITEM.get(identifier), displayName);
             if (EntityInit.ENTITY_TYPES.containsKey(identifier)) {
                 translationBuilder.add(EntityInit.ENTITY_TYPES.get(identifier), displayName);
             }
@@ -41,7 +41,7 @@ public class LangLoader extends FabricLanguageProvider {
     }
 
     private static String getDisplayName(String path) {
-        for (ToolMaterials toolMaterial : ToolMaterials.values()) {
+        for (Tiers toolMaterial : Tiers.values()) {
             for (String woodHandle : ItemInit.WOOD_MATERIALS) {
                 String prefix = ItemInit.getFormattedName(toolMaterial, woodHandle, "");
                 if (path.startsWith(prefix)) {

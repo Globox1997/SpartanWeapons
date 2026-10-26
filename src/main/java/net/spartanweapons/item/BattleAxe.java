@@ -1,11 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 
 public class BattleAxe extends SwordItem {
 
-    public BattleAxe(ToolMaterial toolMaterial, Settings settings) {
+    public BattleAxe(Tier toolMaterial, Properties settings) {
         super(toolMaterial, settings);
     }
 

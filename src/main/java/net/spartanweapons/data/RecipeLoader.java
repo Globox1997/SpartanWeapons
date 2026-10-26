@@ -2,17 +2,17 @@ package net.spartanweapons.data;
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricRecipeProvider;
-import net.minecraft.data.server.recipe.RecipeExporter;
-import net.minecraft.data.server.recipe.ShapedRecipeJsonBuilder;
-import net.minecraft.data.server.recipe.SmithingTransformRecipeJsonBuilder;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.ToolMaterials;
-import net.minecraft.recipe.Ingredient;
-import net.minecraft.recipe.book.RecipeCategory;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.RegistryWrapper;
-import net.minecraft.util.Identifier;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.recipes.RecipeCategory;
+import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.crafting.Ingredient;
 import net.spartanweapons.SpartanWeaponsMain;
 import net.spartanweapons.init.ItemInit;
 
@@ -21,7 +21,7 @@ import java.util.concurrent.CompletableFuture;
 
 public class RecipeLoader extends FabricRecipeProvider {
 
-    public RecipeLoader(FabricDataOutput output, CompletableFuture<RegistryWrapper.WrapperLookup> registriesFuture) {
+    public RecipeLoader(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
@@ -35,33 +35,33 @@ public class RecipeLoader extends FabricRecipeProvider {
     );
 
     @Override
-    public void generate(RecipeExporter exporter) {
+    public void buildRecipes(RecipeOutput exporter) {
         for (String woodHandle : ItemInit.WOOD_MATERIALS) {
             Item stickItem = getHandleItem(woodHandle, "stick");
-            Item planksItem = Registries.ITEM.get(Identifier.ofVanilla(woodHandle + "_planks"));
+            Item planksItem = BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(woodHandle + "_planks"));
 
             for (BasicRecipe recipe : WOODEN_BASE_ITEMS) {
-                Item resultItem = Registries.ITEM.get(SpartanWeaponsMain.identifierOf(woodHandle + "_" + recipe.suffix()));
+                Item resultItem = BuiltInRegistries.ITEM.get(SpartanWeaponsMain.identifierOf(woodHandle + "_" + recipe.suffix()));
 
-                ShapedRecipeJsonBuilder builder = ShapedRecipeJsonBuilder.create(RecipeCategory.MISC, resultItem)
-                        .input('s', stickItem);
+                ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(RecipeCategory.MISC, resultItem)
+                        .define('s', stickItem);
 
                 if (recipe.needsLeather()) {
-                    builder.input('l', Items.LEATHER);
+                    builder.define('l', Items.LEATHER);
                 }else{
-                    builder.input('b', planksItem);
+                    builder.define('b', planksItem);
                 }
 
                 for (String line : recipe.pattern()) {
                     builder.pattern(line);
                 }
 
-                builder.criterion(hasItem(stickItem), conditionsFromItem(stickItem))
-                        .offerTo(exporter);
+                builder.unlockedBy(getHasName(stickItem), has(stickItem))
+                        .save(exporter);
             }
         }
-        for (ToolMaterials toolMaterial : ToolMaterials.values()) {
-            if (toolMaterial == ToolMaterials.WOOD || toolMaterial == ToolMaterials.STONE) {
+        for (Tiers toolMaterial : Tiers.values()) {
+            if (toolMaterial == Tiers.WOOD || toolMaterial == Tiers.STONE) {
                 continue;
             }
             for (String woodHandle : ItemInit.WOOD_MATERIALS) {
@@ -70,20 +70,20 @@ public class RecipeLoader extends FabricRecipeProvider {
                         continue;
                     }
                     String fullName = ItemInit.getFormattedName(toolMaterial, woodHandle, type.suffix());
-                    Item resultItem = Registries.ITEM.get(SpartanWeaponsMain.identifierOf(fullName));
+                    Item resultItem = BuiltInRegistries.ITEM.get(SpartanWeaponsMain.identifierOf(fullName));
 
-                    if (toolMaterial == ToolMaterials.NETHERITE) {
-                        String baseName = ItemInit.getFormattedName(ToolMaterials.DIAMOND, woodHandle, type.suffix());
-                        Item baseItem = Registries.ITEM.get(SpartanWeaponsMain.identifierOf(baseName));
+                    if (toolMaterial == Tiers.NETHERITE) {
+                        String baseName = ItemInit.getFormattedName(Tiers.DIAMOND, woodHandle, type.suffix());
+                        Item baseItem = BuiltInRegistries.ITEM.get(SpartanWeaponsMain.identifierOf(baseName));
 
-                        SmithingTransformRecipeJsonBuilder.create(
-                                        Ingredient.ofItems(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
-                                        Ingredient.ofItems(baseItem),
-                                        Ingredient.ofItems(Items.NETHERITE_INGOT),
+                        SmithingTransformRecipeBuilder.smithing(
+                                        Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                                        Ingredient.of(baseItem),
+                                        Ingredient.of(Items.NETHERITE_INGOT),
                                         RecipeCategory.COMBAT,
                                         resultItem
-                                ).criterion(hasItem(Items.NETHERITE_INGOT), conditionsFromItem(Items.NETHERITE_INGOT))
-                                .offerTo(exporter, SpartanWeaponsMain.identifierOf(fullName + "_smithing"));
+                                ).unlocks(getHasName(Items.NETHERITE_INGOT), has(Items.NETHERITE_INGOT))
+                                .save(exporter, SpartanWeaponsMain.identifierOf(fullName + "_smithing"));
                     } else {
                         generateShapedRecipe(exporter, toolMaterial, woodHandle, type, resultItem);
                     }
@@ -92,58 +92,58 @@ public class RecipeLoader extends FabricRecipeProvider {
         }
     }
 
-    private void generateShapedRecipe(RecipeExporter exporter, ToolMaterials toolMaterial, String woodHandle, ItemInit.WeaponType type, Item resultItem) {
+    private void generateShapedRecipe(RecipeOutput exporter, Tiers toolMaterial, String woodHandle, ItemInit.WeaponType type, Item resultItem) {
         Item ingotItem = getBaseIngredient(toolMaterial);
-        ShapedRecipeJsonBuilder builder = ShapedRecipeJsonBuilder.create(RecipeCategory.COMBAT, resultItem);
+        ShapedRecipeBuilder builder = ShapedRecipeBuilder.shaped(RecipeCategory.COMBAT, resultItem);
 
         String fullPattern = String.join("", type.pattern());
 
         if (fullPattern.contains("i")) {
-            builder.input('i', ingotItem);
+            builder.define('i', ingotItem);
         }
         if (fullPattern.contains("b")) {
-            builder.input('b', getBlockItem(toolMaterial));
+            builder.define('b', getBlockItem(toolMaterial));
         }
         if (fullPattern.contains("s")) {
-            builder.input('s', getHandleItem(woodHandle, "stick"));
+            builder.define('s', getHandleItem(woodHandle, "stick"));
         }
         if (fullPattern.contains("p")) {
-            builder.input('p', getHandleItem(woodHandle, "pole"));
+            builder.define('p', getHandleItem(woodHandle, "pole"));
         }
         if (fullPattern.contains("x")) {
-            builder.input('x', Items.SLIME_BALL);
+            builder.define('x', Items.SLIME_BALL);
         }
 
         for (String line : type.pattern()) {
             builder.pattern(line);
         }
 
-        builder.criterion(hasItem(ingotItem), conditionsFromItem(ingotItem)).offerTo(exporter);
+        builder.unlockedBy(getHasName(ingotItem), has(ingotItem)).save(exporter);
     }
 
-    private Item getBaseIngredient(ToolMaterials material) {
-        if (material == ToolMaterials.IRON) {
+    private Item getBaseIngredient(Tiers material) {
+        if (material == Tiers.IRON) {
             return Items.IRON_INGOT;
         }
-        if (material == ToolMaterials.GOLD) {
+        if (material == Tiers.GOLD) {
             return Items.GOLD_INGOT;
         }
-        if (material == ToolMaterials.DIAMOND) {
+        if (material == Tiers.DIAMOND) {
             return Items.DIAMOND;
         }
-        if (material == ToolMaterials.NETHERITE) {
+        if (material == Tiers.NETHERITE) {
             return Items.NETHERITE_INGOT;
         }
-        return Registries.ITEM.get(Identifier.ofVanilla(material.name().toLowerCase() + "_ingot"));
+        return BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(material.name().toLowerCase() + "_ingot"));
     }
 
-    private Item getBlockItem(ToolMaterials mat) {
-        return Registries.ITEM.get(Identifier.ofVanilla(mat.name().toLowerCase() + "_block"));
+    private Item getBlockItem(Tiers mat) {
+        return BuiltInRegistries.ITEM.get(ResourceLocation.withDefaultNamespace(mat.name().toLowerCase() + "_block"));
     }
 
     private Item getHandleItem(String wood, String type) {
-        Identifier id = wood.equals("oak") && type.equals("stick") ? Identifier.ofVanilla(type) : SpartanWeaponsMain.identifierOf(wood + "_" + type);
-        return Registries.ITEM.get(id);
+        ResourceLocation id = wood.equals("oak") && type.equals("stick") ? ResourceLocation.withDefaultNamespace(type) : SpartanWeaponsMain.identifierOf(wood + "_" + type);
+        return BuiltInRegistries.ITEM.get(id);
     }
 
 }

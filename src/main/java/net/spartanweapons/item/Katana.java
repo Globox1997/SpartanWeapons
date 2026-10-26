@@ -1,25 +1,25 @@
 package net.spartanweapons.item;
 
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.SwordItem;
-import net.minecraft.item.ToolMaterial;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tier;
 import net.spartanweapons.init.ConfigInit;
 
 public class Katana extends SwordItem {
 
     private static final float CHARGED_DAMAGE_FACTOR = 0.2F + 0.9F * 0.9F * 0.8F;
 
-    public Katana(ToolMaterial toolMaterial, Settings settings) {
+    public Katana(Tier toolMaterial, Properties settings) {
         super(toolMaterial, settings);
     }
 
     @Override
-    public float getBonusAttackDamage(Entity target, float baseAttackDamage, DamageSource damageSource) {
-        if (damageSource.getAttacker() instanceof PlayerEntity player && player.isOnGround() && !player.isSprinting()
-                && baseAttackDamage > player.getAttributeValue(EntityAttributes.GENERIC_ATTACK_DAMAGE) * CHARGED_DAMAGE_FACTOR) {
+    public float getAttackDamageBonus(Entity target, float baseAttackDamage, DamageSource damageSource) {
+        if (damageSource.getEntity() instanceof Player player && player.onGround() && !player.isSprinting()
+                && baseAttackDamage > player.getAttributeValue(Attributes.ATTACK_DAMAGE) * CHARGED_DAMAGE_FACTOR) {
             return baseAttackDamage * ConfigInit.CONFIG.katana_charged_sweep_bonus;
         }
         return 0.0F;
