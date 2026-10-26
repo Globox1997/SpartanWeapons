@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.util.Identifier;
 import net.spartanweapons.init.ConfigInit;
 import net.spartanweapons.init.EntityInit;
+import net.spartanweapons.init.EventInit;
 import net.spartanweapons.init.ItemInit;
 import net.spartanweapons.init.TagInit;
 
@@ -19,6 +20,7 @@ public class SpartanWeaponsMain implements ModInitializer {
         ItemInit.init();
         EntityInit.init();
         TagInit.init();
+        EventInit.init();
     }
 
 }

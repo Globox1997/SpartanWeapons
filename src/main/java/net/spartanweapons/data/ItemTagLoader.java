@@ -8,6 +8,7 @@ import net.minecraft.registry.RegistryWrapper;
 import net.minecraft.registry.tag.ItemTags;
 import net.spartanweapons.init.ItemInit;
 import net.spartanweapons.init.TagInit;
+import net.spartanweapons.item.Javelin;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -22,6 +23,9 @@ public class ItemTagLoader extends FabricTagProvider.ItemTagProvider {
         for (Item entry : ItemInit.ITEMS.values()) {
             if (entry instanceof SwordItem) {
                 getOrCreateTagBuilder(ItemTags.SWORDS).add(entry);
+            }
+            if (entry instanceof Javelin) {
+                getOrCreateTagBuilder(TagInit.ENCHANTABLE_JAVELIN).add(entry);
             }
         }
         for (Item stick : ItemInit.STICKS) {

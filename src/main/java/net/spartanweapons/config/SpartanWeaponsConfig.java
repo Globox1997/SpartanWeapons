@@ -20,6 +20,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float dagger_attack_speed = -1.6f;
      @ConfigEntry.Gui.RequiresRestart
      public float dagger_range = -0.5f;
+     public float dagger_backstab_bonus = 0.5f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int glaive_attack_damage = 4;
@@ -27,6 +28,8 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float glaive_attack_speed = -2.6f;
      @ConfigEntry.Gui.RequiresRestart
      public float glaive_range = 2.0f;
+     @ConfigEntry.Gui.RequiresRestart
+     public float glaive_knockback = 0.5f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int greatsword_attack_damage = 7;
@@ -41,6 +44,8 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float halberd_attack_speed = -3.0f;
      @ConfigEntry.Gui.RequiresRestart
      public float halberd_range = 2.0f;
+     @ConfigEntry.Gui.RequiresRestart
+     public float halberd_knockback = 0.5f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int katana_attack_damage = 4;
@@ -48,11 +53,13 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float katana_attack_speed = -2.3f;
      @ConfigEntry.Gui.RequiresRestart
      public float katana_range = 1.0f;
+     public float katana_charged_sweep_bonus = 0.25f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int mace_attack_damage = 9;
      @ConfigEntry.Gui.RequiresRestart
      public float mace_attack_speed = -3.2f;
+     public boolean mace_disables_shield = true;
 
      @ConfigEntry.Gui.RequiresRestart
      public int rapier_attack_damage = 1;
@@ -60,6 +67,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float rapier_attack_speed = -2.0f;
      @ConfigEntry.Gui.RequiresRestart
      public float rapier_range = 0.5f;
+     public float rapier_armor_ignore_chance = 0.2f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int scythe_attack_damage = 6;
@@ -67,6 +75,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float scythe_attack_speed = -3.0f;
      @ConfigEntry.Gui.RequiresRestart
      public float scythe_range = 1.5f;
+     public float scythe_sweep_range_multiplier = 1.5f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int spear_attack_damage = 5;
@@ -81,6 +90,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float kunai_attack_speed = -1.8f;
      @ConfigEntry.Gui.RequiresRestart
      public float kunai_range = -0.5f;
+     public float kunai_throw_damage_multiplier = 1.5f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int javelin_attack_damage = 2;
@@ -88,6 +98,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public float javelin_attack_speed = -2.4f;
      @ConfigEntry.Gui.RequiresRestart
      public float javelin_range = 1.0f;
+     public float javelin_throw_damage_multiplier = 1.2f;
 
      @ConfigEntry.Gui.RequiresRestart
      public int cutlass_attack_damage = 5;
@@ -107,6 +118,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public int club_attack_damage = 4;
      @ConfigEntry.Gui.RequiresRestart
      public float club_attack_speed = -3.2f;
+     public boolean club_disables_shield = true;
 
      @ConfigEntry.Gui.RequiresRestart
      public int staff_attack_damage = 2;
