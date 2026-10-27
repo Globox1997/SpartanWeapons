@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "b": {
-      "item": "minecraft:diamond_block"
-    },
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "s": {
-      "item": "spartanweapons:dark_oak_stick"
-    }
+    "b": "minecraft:diamond_block",
+    "i": "minecraft:diamond",
+    "s": "spartanweapons:dark_oak_stick"
   },
   "pattern": [
     "b",
@@ -18,7 +12,6 @@
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_dark_oak_mace"
   }
 }

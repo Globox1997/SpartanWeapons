@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:acacia_club"
+        "recipes": "spartanweapons:acacia_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

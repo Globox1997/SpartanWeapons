@@ -1,13 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:jungle_planks"
-    },
-    "s": {
-      "item": "spartanweapons:jungle_stick"
-    }
+    "b": "minecraft:jungle_planks",
+    "s": "spartanweapons:jungle_stick"
   },
   "pattern": [
     "s  ",
@@ -15,7 +10,6 @@
     " bb"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:jungle_spear"
   }
 }

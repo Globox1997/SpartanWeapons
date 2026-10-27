@@ -1,13 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:bamboo_planks"
-    },
-    "s": {
-      "item": "spartanweapons:bamboo_stick"
-    }
+    "b": "minecraft:bamboo_planks",
+    "s": "spartanweapons:bamboo_stick"
   },
   "pattern": [
     "s",
@@ -15,7 +10,6 @@
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:bamboo_staff"
   }
 }

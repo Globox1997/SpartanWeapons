@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:acacia_pole"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:acacia_pole"
   },
   "pattern": [
     "i",
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_acacia_spear"
   }
 }

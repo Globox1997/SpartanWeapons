@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:jungle_club"
+        "recipes": "spartanweapons:jungle_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

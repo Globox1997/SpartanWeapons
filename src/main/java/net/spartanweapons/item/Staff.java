@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Staff extends SwordItem {
+public class Staff extends Item {
 
-    public Staff(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Staff(Properties settings) {
+        super(settings);
     }
 
 }

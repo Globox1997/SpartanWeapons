@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:warped_staff"
+        "recipes": "spartanweapons:warped_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

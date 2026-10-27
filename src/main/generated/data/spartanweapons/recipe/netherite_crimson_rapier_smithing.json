@@ -1,16 +1,9 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "spartanweapons:diamond_crimson_rapier"
-  },
+  "addition": "minecraft:netherite_ingot",
+  "base": "spartanweapons:diamond_crimson_rapier",
   "result": {
-    "count": 1,
     "id": "spartanweapons:netherite_crimson_rapier"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

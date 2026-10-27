@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:bamboo_club"
+        "recipes": "spartanweapons:bamboo_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

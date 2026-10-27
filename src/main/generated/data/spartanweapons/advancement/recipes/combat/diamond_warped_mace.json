@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_warped_mace"
+        "recipes": "spartanweapons:diamond_warped_mace"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_spruce_javelin"
+        "recipes": "spartanweapons:diamond_spruce_javelin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

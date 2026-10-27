@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_bamboo_spear"
+        "recipes": "spartanweapons:diamond_bamboo_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

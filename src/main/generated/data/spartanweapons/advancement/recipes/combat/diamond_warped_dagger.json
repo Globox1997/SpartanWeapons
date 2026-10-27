@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_warped_dagger"
+        "recipes": "spartanweapons:diamond_warped_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

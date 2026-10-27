@@ -2,22 +2,15 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:birch_stick"
-    },
-    "x": {
-      "item": "minecraft:slime_ball"
-    }
+    "i": "minecraft:iron_ingot",
+    "s": "spartanweapons:birch_stick",
+    "x": "minecraft:slime_ball"
   },
   "pattern": [
     "xi",
     "s "
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_birch_kunai"
   }
 }

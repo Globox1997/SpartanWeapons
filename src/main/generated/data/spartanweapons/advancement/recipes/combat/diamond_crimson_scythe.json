@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_crimson_scythe"
+        "recipes": "spartanweapons:diamond_crimson_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

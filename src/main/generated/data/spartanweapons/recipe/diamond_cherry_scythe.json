@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:cherry_pole"
-    },
-    "s": {
-      "item": "spartanweapons:cherry_stick"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:cherry_pole",
+    "s": "spartanweapons:cherry_stick"
   },
   "pattern": [
     " ii",
@@ -18,7 +12,6 @@
     "i s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_cherry_scythe"
   }
 }

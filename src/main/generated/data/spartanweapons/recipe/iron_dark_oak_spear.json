@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "p": {
-      "item": "spartanweapons:dark_oak_pole"
-    }
+    "i": "minecraft:iron_ingot",
+    "p": "spartanweapons:dark_oak_pole"
   },
   "pattern": [
     "i",
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_dark_oak_spear"
   }
 }

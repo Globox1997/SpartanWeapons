@@ -1,16 +1,9 @@
 {
   "type": "minecraft:smithing_transform",
-  "addition": {
-    "item": "minecraft:netherite_ingot"
-  },
-  "base": {
-    "item": "spartanweapons:diamond_jungle_mace"
-  },
+  "addition": "minecraft:netherite_ingot",
+  "base": "spartanweapons:diamond_jungle_mace",
   "result": {
-    "count": 1,
     "id": "spartanweapons:netherite_jungle_mace"
   },
-  "template": {
-    "item": "minecraft:netherite_upgrade_smithing_template"
-  }
+  "template": "minecraft:netherite_upgrade_smithing_template"
 }

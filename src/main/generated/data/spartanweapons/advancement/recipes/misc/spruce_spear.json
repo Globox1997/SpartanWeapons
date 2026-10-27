@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:spruce_spear"
+        "recipes": "spartanweapons:spruce_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

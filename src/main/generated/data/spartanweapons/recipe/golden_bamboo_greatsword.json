@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:gold_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:bamboo_stick"
-    }
+    "i": "minecraft:gold_ingot",
+    "s": "spartanweapons:bamboo_stick"
   },
   "pattern": [
     " i ",
@@ -15,7 +11,6 @@
     "isi"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:golden_bamboo_greatsword"
   }
 }

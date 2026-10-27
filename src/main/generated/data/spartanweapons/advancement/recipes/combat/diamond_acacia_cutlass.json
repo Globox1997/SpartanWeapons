@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_acacia_cutlass"
+        "recipes": "spartanweapons:diamond_acacia_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

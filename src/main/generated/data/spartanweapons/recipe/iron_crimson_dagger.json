@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:crimson_stick"
-    }
+    "i": "minecraft:iron_ingot",
+    "s": "spartanweapons:crimson_stick"
   },
   "pattern": [
     "i",
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_crimson_dagger"
   }
 }

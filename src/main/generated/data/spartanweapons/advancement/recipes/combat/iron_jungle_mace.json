@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_jungle_mace"
+        "recipes": "spartanweapons:iron_jungle_mace"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_spruce_halberd"
+        "recipes": "spartanweapons:diamond_spruce_halberd"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

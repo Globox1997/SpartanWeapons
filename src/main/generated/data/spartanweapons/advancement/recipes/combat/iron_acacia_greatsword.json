@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_acacia_greatsword"
+        "recipes": "spartanweapons:iron_acacia_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

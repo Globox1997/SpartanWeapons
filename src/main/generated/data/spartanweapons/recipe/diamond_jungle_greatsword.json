@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "s": {
-      "item": "spartanweapons:jungle_stick"
-    }
+    "i": "minecraft:diamond",
+    "s": "spartanweapons:jungle_stick"
   },
   "pattern": [
     " i ",
@@ -15,7 +11,6 @@
     "isi"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_jungle_greatsword"
   }
 }

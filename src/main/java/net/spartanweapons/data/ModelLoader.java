@@ -1,36 +1,28 @@
 package net.spartanweapons.data;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.minecraft.client.data.models.BlockModelGenerators;
+import net.minecraft.client.data.models.ItemModelGenerators;
+import net.minecraft.client.data.models.model.ItemModelUtils;
+import net.minecraft.client.data.models.model.ModelTemplate;
+import net.minecraft.client.data.models.model.ModelTemplates;
+import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.data.models.model.TextureSlot;
+import net.minecraft.client.resources.model.sprite.Material;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.data.models.BlockModelGenerators;
-import net.minecraft.data.models.ItemModelGenerators;
-import net.minecraft.data.models.model.ModelTemplate;
-import net.minecraft.data.models.model.ModelTemplates;
-import net.minecraft.data.models.model.TextureMapping;
-import net.minecraft.data.models.model.TextureSlot;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Tiers;
 import net.spartanweapons.SpartanWeaponsMain;
 import net.spartanweapons.init.ItemInit;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.Map;
 import java.util.Optional;
-import java.util.function.BiConsumer;
-import java.util.function.Supplier;
 
 public class ModelLoader extends FabricModelProvider {
 
-    public static final ModelTemplate HANDHELD_TWO_LAYERS = new ModelTemplate(Optional.of(ResourceLocation.withDefaultNamespace("item/handheld")), Optional.empty(), TextureSlot.LAYER0, TextureSlot.LAYER1);
-
     private static final String itemModelPath = "item/";
 
-    public ModelLoader(FabricDataOutput output) {
+    public ModelLoader(FabricPackOutput output) {
         super(output);
     }
 
@@ -42,110 +34,53 @@ public class ModelLoader extends FabricModelProvider {
     public void generateItemModels(ItemModelGenerators itemModelGenerator) {
 
         for (Item stick : ItemInit.STICKS) {
-            ModelTemplates.FLAT_HANDHELD_ITEM.create(SpartanWeaponsMain.identifierOf(itemModelPath + BuiltInRegistries.ITEM.getKey(stick).getPath()), TextureMapping.layer0(SpartanWeaponsMain.identifierOf(itemModelPath + "sticks/" + BuiltInRegistries.ITEM.getKey(stick).getPath())), itemModelGenerator.output);
+            String name = BuiltInRegistries.ITEM.getKey(stick).getPath();
+            generateItem(itemModelGenerator, name, ModelTemplates.FLAT_HANDHELD_ITEM, TextureMapping.layer0(texture("sticks/" + name)));
         }
         for (String woodHandle : ItemInit.WOOD_MATERIALS) {
-            ModelTemplates.FLAT_HANDHELD_ITEM.create(SpartanWeaponsMain.identifierOf(itemModelPath + woodHandle + "_pole"), TextureMapping.layer0(SpartanWeaponsMain.identifierOf(itemModelPath + "poles/" + woodHandle + "_pole")), itemModelGenerator.output);
-            ModelTemplates.FLAT_HANDHELD_ITEM.create(SpartanWeaponsMain.identifierOf(itemModelPath + woodHandle + "_club"), TextureMapping.layer0(SpartanWeaponsMain.identifierOf(itemModelPath + "clubs/" + woodHandle + "_club")), itemModelGenerator.output);
-            ModelTemplates.FLAT_HANDHELD_ITEM.create(SpartanWeaponsMain.identifierOf(itemModelPath + woodHandle + "_spear"), TextureMapping.layer0(SpartanWeaponsMain.identifierOf(itemModelPath + "spears/" + woodHandle + "_spear")), itemModelGenerator.output, (id, textures) -> createPredicateJson(id, textures, "spear", "", "", false, false, false, false));
-            ModelTemplates.FLAT_HANDHELD_ITEM.create(SpartanWeaponsMain.identifierOf(itemModelPath + woodHandle + "_staff"), TextureMapping.layer0(SpartanWeaponsMain.identifierOf(itemModelPath + "staffs/" + woodHandle + "_staff")), itemModelGenerator.output, (id, textures) -> createPredicateJson(id, textures, "staff", "", "", false, false, false, false));
+            generateItem(itemModelGenerator, woodHandle + "_pole", ModelTemplates.FLAT_HANDHELD_ITEM, TextureMapping.layer0(texture("poles/" + woodHandle + "_pole")));
+            generateItem(itemModelGenerator, woodHandle + "_club", ModelTemplates.FLAT_HANDHELD_ITEM, TextureMapping.layer0(texture("clubs/" + woodHandle + "_club")));
+            generateItem(itemModelGenerator, woodHandle + "_spear", parentTemplate("spear", TextureSlot.LAYER0), TextureMapping.layer0(texture("spears/" + woodHandle + "_spear")));
+            generateItem(itemModelGenerator, woodHandle + "_staff", parentTemplate("staff", TextureSlot.LAYER0), TextureMapping.layer0(texture("staffs/" + woodHandle + "_staff")));
         }
 
-        for (Tiers toolMaterial : Tiers.values()) {
-            if (toolMaterial.equals(Tiers.WOOD) || toolMaterial.equals(Tiers.STONE)) {
-                continue;
-            }
+        for (String material : ItemInit.WEAPON_MATERIALS.keySet()) {
             for (String woodHandle : ItemInit.WOOD_MATERIALS) {
                 for (ItemInit.WeaponType type : ItemInit.TYPES) {
-                    String name = toolMaterial.name().toLowerCase() + (toolMaterial.name().toLowerCase().equals("gold") ? "en" : "") + "_" + woodHandle + "_" + type.suffix();
-                    ModelTemplate model = getItemModel(type.suffix(), toolMaterial.name().toLowerCase(), woodHandle, itemModelGenerator.output);
-                    if (model != null) {
-                        itemModelGenerator.generateFlatItem(BuiltInRegistries.ITEM.get(SpartanWeaponsMain.identifierOf(name)), model);
-                    }
+                    generateWeapon(itemModelGenerator, type.suffix(), material, woodHandle);
                 }
             }
         }
     }
 
-
-    @Nullable
-    private static ModelTemplate getItemModel(String item, String material, String woodHandle, BiConsumer<ResourceLocation, Supplier<JsonElement>> writer) {
-        String name = material + (material.equals("gold") ? "en" : "") + "_" + woodHandle + "_" + item;
-        String layer0 = material + (material.equals("gold") ? "en" : "") + "_" + item;
+    private static void generateWeapon(ItemModelGenerators itemModelGenerator, String item, String material, String woodHandle) {
+        String name = ItemInit.getFormattedName(material, woodHandle, item);
+        String layer0 = (material.equals("gold") ? "golden" : material) + "_" + item;
         String layer1 = "alt_wood/" + item + "_" + woodHandle;
-        String path = itemModelPath + item.replace("battle_axe", "battleaxe") + (item.equals("cutlass") ? "es" : "s") + "/";
+        String path = item.replace("battle_axe", "battleaxe") + (item.equals("cutlass") ? "es" : "s") + "/";
+        TextureMapping textures = TextureMapping.layered(texture(path + layer0), texture(path + layer1));
 
-        switch (item) {
-            case "cutlass":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "dagger":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "glaive":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "greatsword":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "halberd":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "katana":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "mace":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "rapier":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "scythe":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "spear":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "battle_axe":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "kunai":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, false, true, false));
-                return null;
-            case "javelin":
-                HANDHELD_TWO_LAYERS.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer, (id, textures) -> createPredicateJson(id, textures, item, material, woodHandle, true, true, false, false));
-                new ModelTemplate(Optional.of(SpartanWeaponsMain.identifierOf(itemModelPath + item + "_throwing")), Optional.empty(), TextureSlot.LAYER0, TextureSlot.LAYER1).create(SpartanWeaponsMain.identifierOf(itemModelPath + name + "_throwing"), TextureMapping.layered(SpartanWeaponsMain.identifierOf(path + layer0), SpartanWeaponsMain.identifierOf(path + layer1)), writer);
-                return null;
-            default:
-                return null;
-        }
-    }
-
-    private static JsonObject createPredicateJson(ResourceLocation id, Map<TextureSlot, ResourceLocation> textures, String item, String material, String woodHandle, boolean gui, boolean throwing, boolean extraLayer, boolean bettercombat) {
-        JsonObject jsonObject;
-        if (extraLayer) {
-            jsonObject = new ModelTemplate(Optional.of(SpartanWeaponsMain.identifierOf("item/" + item)), Optional.empty(), TextureSlot.LAYER0, TextureSlot.LAYER1).createBaseTemplate(id, textures);
+        Identifier model = parentTemplate(item, TextureSlot.LAYER0, TextureSlot.LAYER1).create(SpartanWeaponsMain.identifierOf(itemModelPath + name), textures, itemModelGenerator.modelOutput);
+        Item weapon = BuiltInRegistries.ITEM.getValue(SpartanWeaponsMain.identifierOf(name));
+        if (item.equals("javelin")) {
+            Identifier throwingModel = parentTemplate(item + "_throwing", TextureSlot.LAYER0, TextureSlot.LAYER1).create(SpartanWeaponsMain.identifierOf(itemModelPath + name + "_throwing"), textures, itemModelGenerator.modelOutput);
+            itemModelGenerator.itemModelOutput.accept(weapon, ItemModelUtils.conditional(ItemModelUtils.isUsingItem(), ItemModelUtils.plainModel(throwingModel), ItemModelUtils.plainModel(model)));
         } else {
-            jsonObject = new ModelTemplate(Optional.of(SpartanWeaponsMain.identifierOf("item/" + item)), Optional.empty(), TextureSlot.LAYER0).createBaseTemplate(id, textures);
+            itemModelGenerator.itemModelOutput.accept(weapon, ItemModelUtils.plainModel(model));
         }
-
-        JsonArray jsonArray = new JsonArray();
-        JsonObject jsonObject2;
-        JsonObject jsonObject3;
-
-        material = material + (material.equals("gold") ? "en" : "");
-
-        if (throwing) {
-            jsonObject2 = new JsonObject();
-            jsonObject3 = new JsonObject();
-            jsonObject3.addProperty("throwing", 1.0f);
-            jsonObject2.add("predicate", jsonObject3);
-            jsonObject2.addProperty("model", "spartanweapons:item/" + material + "_" + woodHandle + "_" + item + "_throwing");
-            jsonArray.add(jsonObject2);
-        }
-        jsonObject.add("overrides", jsonArray);
-        return jsonObject;
     }
 
+    private static void generateItem(ItemModelGenerators itemModelGenerator, String name, ModelTemplate template, TextureMapping textures) {
+        Identifier model = template.create(SpartanWeaponsMain.identifierOf(itemModelPath + name), textures, itemModelGenerator.modelOutput);
+        itemModelGenerator.itemModelOutput.accept(BuiltInRegistries.ITEM.getValue(SpartanWeaponsMain.identifierOf(name)), ItemModelUtils.plainModel(model));
+    }
+
+    private static ModelTemplate parentTemplate(String parent, TextureSlot... slots) {
+        return new ModelTemplate(Optional.of(SpartanWeaponsMain.identifierOf(itemModelPath + parent)), Optional.empty(), slots);
+    }
+
+    private static Material texture(String path) {
+        return new Material(SpartanWeaponsMain.identifierOf(itemModelPath + path));
+    }
 
 }

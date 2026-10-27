@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_crimson_javelin"
+        "recipes": "spartanweapons:iron_crimson_javelin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

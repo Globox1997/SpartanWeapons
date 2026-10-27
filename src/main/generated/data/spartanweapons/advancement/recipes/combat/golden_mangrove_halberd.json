@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_mangrove_halberd"
+        "recipes": "spartanweapons:golden_mangrove_halberd"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

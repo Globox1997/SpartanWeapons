@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_birch_greatsword"
+        "recipes": "spartanweapons:diamond_birch_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

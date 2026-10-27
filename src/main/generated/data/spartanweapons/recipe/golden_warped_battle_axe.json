@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:gold_ingot"
-    },
-    "p": {
-      "item": "spartanweapons:warped_pole"
-    },
-    "s": {
-      "item": "spartanweapons:warped_stick"
-    }
+    "i": "minecraft:gold_ingot",
+    "p": "spartanweapons:warped_pole",
+    "s": "spartanweapons:warped_stick"
   },
   "pattern": [
     "iii",
@@ -18,7 +12,6 @@
     " s "
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:golden_warped_battle_axe"
   }
 }

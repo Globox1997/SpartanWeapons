@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:netherite_oak_spear_smithing"
+        "recipes": "spartanweapons:netherite_oak_spear_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

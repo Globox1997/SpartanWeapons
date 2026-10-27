@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_warped_spear"
+        "recipes": "spartanweapons:iron_warped_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

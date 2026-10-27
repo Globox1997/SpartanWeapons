@@ -3,11 +3,8 @@ package net.spartanweapons.mixin;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.spartanweapons.init.ConfigInit;
-import net.spartanweapons.item.Club;
-import net.spartanweapons.item.Mace;
 import net.spartanweapons.item.Rapier;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -16,14 +13,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(LivingEntity.class)
 public abstract class LivingEntityMixin {
-
-    @Inject(method = "canDisableShield", at = @At("RETURN"), cancellable = true)
-    private void disablesShieldMixin(CallbackInfoReturnable<Boolean> info) {
-        Item item = ((LivingEntity) (Object) this).getWeaponItem().getItem();
-        if ((item instanceof Mace && ConfigInit.CONFIG.mace_disables_shield) || (item instanceof Club && ConfigInit.CONFIG.club_disables_shield)) {
-            info.setReturnValue(true);
-        }
-    }
 
     @Inject(method = "getDamageAfterArmorAbsorb", at = @At("HEAD"), cancellable = true)
     private void applyArmorToDamageMixin(DamageSource source, float amount, CallbackInfoReturnable<Float> info) {

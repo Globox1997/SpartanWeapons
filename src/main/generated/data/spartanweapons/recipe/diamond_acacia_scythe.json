@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:acacia_pole"
-    },
-    "s": {
-      "item": "spartanweapons:acacia_stick"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:acacia_pole",
+    "s": "spartanweapons:acacia_stick"
   },
   "pattern": [
     " ii",
@@ -18,7 +12,6 @@
     "i s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_acacia_scythe"
   }
 }

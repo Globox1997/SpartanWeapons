@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:netherite_spruce_battle_axe_smithing"
+        "recipes": "spartanweapons:netherite_spruce_battle_axe_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

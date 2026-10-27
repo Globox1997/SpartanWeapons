@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:acacia_pole"
+        "recipes": "spartanweapons:acacia_pole"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

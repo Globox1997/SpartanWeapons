@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_acacia_kunai"
+        "recipes": "spartanweapons:iron_acacia_kunai"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

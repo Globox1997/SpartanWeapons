@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:birch_staff"
+        "recipes": "spartanweapons:birch_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

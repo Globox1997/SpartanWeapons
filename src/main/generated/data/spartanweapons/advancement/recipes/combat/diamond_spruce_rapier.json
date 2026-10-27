@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_spruce_rapier"
+        "recipes": "spartanweapons:diamond_spruce_rapier"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

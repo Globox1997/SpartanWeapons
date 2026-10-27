@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_oak_javelin"
+        "recipes": "spartanweapons:diamond_oak_javelin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

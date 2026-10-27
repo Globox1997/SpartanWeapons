@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_bamboo_greatsword"
+        "recipes": "spartanweapons:iron_bamboo_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

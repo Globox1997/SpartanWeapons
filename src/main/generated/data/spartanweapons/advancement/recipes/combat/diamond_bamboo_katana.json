@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_bamboo_katana"
+        "recipes": "spartanweapons:diamond_bamboo_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

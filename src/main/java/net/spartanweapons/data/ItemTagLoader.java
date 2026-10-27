@@ -1,46 +1,45 @@
 package net.spartanweapons.data;
 
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
-import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagProvider;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
+import net.fabricmc.fabric.api.datagen.v1.provider.FabricTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
 import net.spartanweapons.init.ItemInit;
 import net.spartanweapons.init.TagInit;
 import net.spartanweapons.item.Javelin;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ItemTagLoader extends FabricTagProvider.ItemTagProvider {
+public class ItemTagLoader extends FabricTagsProvider.ItemTagsProvider {
 
-    public ItemTagLoader(FabricDataOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
+    public ItemTagLoader(FabricPackOutput output, CompletableFuture<HolderLookup.Provider> registriesFuture) {
         super(output, registriesFuture);
     }
 
     @Override
     protected void addTags(HolderLookup.Provider wrapperLookup) {
         for (Item entry : ItemInit.ITEMS.values()) {
-            if (entry instanceof SwordItem) {
-                getOrCreateTagBuilder(ItemTags.SWORDS).add(entry);
+            if (entry.getClass() != Item.class) {
+                builder(ItemTags.SWORDS).add(entry.builtInRegistryHolder().key());
             }
             if (entry instanceof Javelin) {
-                getOrCreateTagBuilder(TagInit.ENCHANTABLE_JAVELIN).add(entry);
+                builder(TagInit.ENCHANTABLE_JAVELIN).add(entry.builtInRegistryHolder().key());
             }
         }
         for (Item stick : ItemInit.STICKS) {
-            getOrCreateTagBuilder(TagInit.STICKS).add(stick);
+            builder(TagInit.STICKS).add(stick.builtInRegistryHolder().key());
         }
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.ACACIA_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.BAMBOO_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.BIRCH_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.CHERRY_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.CRIMSON_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.DARK_OAK_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.JUNGLE_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.MANGROVE_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.OAK_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.SPRUCE_POLE);
-        getOrCreateTagBuilder(TagInit.POLES).add(ItemInit.WARPED_POLE);
+        builder(TagInit.POLES).add(ItemInit.ACACIA_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.BAMBOO_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.BIRCH_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.CHERRY_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.CRIMSON_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.DARK_OAK_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.JUNGLE_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.MANGROVE_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.OAK_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.SPRUCE_POLE.builtInRegistryHolder().key());
+        builder(TagInit.POLES).add(ItemInit.WARPED_POLE.builtInRegistryHolder().key());
     }
 }

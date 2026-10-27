@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_warped_scythe"
+        "recipes": "spartanweapons:iron_warped_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

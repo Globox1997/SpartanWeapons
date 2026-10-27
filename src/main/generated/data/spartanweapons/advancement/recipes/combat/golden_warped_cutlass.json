@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_warped_cutlass"
+        "recipes": "spartanweapons:golden_warped_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

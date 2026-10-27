@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_warped_katana"
+        "recipes": "spartanweapons:diamond_warped_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

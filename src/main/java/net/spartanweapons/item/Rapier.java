@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Rapier extends SwordItem {
+public class Rapier extends Item {
 
-    public Rapier(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Rapier(Properties settings) {
+        super(settings);
     }
 
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:bamboo_staff"
+        "recipes": "spartanweapons:bamboo_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

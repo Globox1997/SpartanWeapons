@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_oak_greatsword"
+        "recipes": "spartanweapons:golden_oak_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_spruce_cutlass"
+        "recipes": "spartanweapons:iron_spruce_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

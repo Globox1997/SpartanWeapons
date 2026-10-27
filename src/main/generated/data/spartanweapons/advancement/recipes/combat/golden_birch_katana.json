@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_birch_katana"
+        "recipes": "spartanweapons:golden_birch_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

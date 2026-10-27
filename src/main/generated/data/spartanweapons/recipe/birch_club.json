@@ -1,13 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:birch_planks"
-    },
-    "s": {
-      "item": "spartanweapons:birch_stick"
-    }
+    "b": "minecraft:birch_planks",
+    "s": "spartanweapons:birch_stick"
   },
   "pattern": [
     "s  ",
@@ -15,7 +10,6 @@
     " sb"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:birch_club"
   }
 }

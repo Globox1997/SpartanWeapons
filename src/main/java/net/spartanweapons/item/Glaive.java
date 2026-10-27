@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Glaive extends SwordItem {
+public class Glaive extends Item {
 
-    public Glaive(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Glaive(Properties settings) {
+        super(settings);
     }
 
 }

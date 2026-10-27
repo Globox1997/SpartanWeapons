@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_crimson_greatsword"
+        "recipes": "spartanweapons:golden_crimson_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

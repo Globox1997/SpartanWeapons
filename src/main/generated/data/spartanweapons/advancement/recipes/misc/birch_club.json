@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:birch_club"
+        "recipes": "spartanweapons:birch_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

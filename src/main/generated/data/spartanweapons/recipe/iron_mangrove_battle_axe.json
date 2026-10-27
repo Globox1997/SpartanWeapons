@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "p": {
-      "item": "spartanweapons:mangrove_pole"
-    },
-    "s": {
-      "item": "spartanweapons:mangrove_stick"
-    }
+    "i": "minecraft:iron_ingot",
+    "p": "spartanweapons:mangrove_pole",
+    "s": "spartanweapons:mangrove_stick"
   },
   "pattern": [
     "iii",
@@ -18,7 +12,6 @@
     " s "
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_mangrove_battle_axe"
   }
 }

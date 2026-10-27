@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "b": {
-      "item": "minecraft:gold_block"
-    },
-    "i": {
-      "item": "minecraft:gold_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:jungle_stick"
-    }
+    "b": "minecraft:gold_block",
+    "i": "minecraft:gold_ingot",
+    "s": "spartanweapons:jungle_stick"
   },
   "pattern": [
     "b",
@@ -18,7 +12,6 @@
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:golden_jungle_mace"
   }
 }

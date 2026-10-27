@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_crimson_katana"
+        "recipes": "spartanweapons:golden_crimson_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

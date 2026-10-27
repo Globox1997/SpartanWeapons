@@ -3,15 +3,14 @@ package net.spartanweapons.item;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.phys.Vec3;
 import net.spartanweapons.init.ConfigInit;
 
-public class Dagger extends SwordItem {
+public class Dagger extends Item {
 
-    public Dagger(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Dagger(Properties settings) {
+        super(settings);
     }
 
     @Override

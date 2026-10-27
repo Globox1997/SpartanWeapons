@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:gold_ingot"
-    },
-    "p": {
-      "item": "spartanweapons:dark_oak_pole"
-    },
-    "s": {
-      "item": "spartanweapons:dark_oak_stick"
-    }
+    "i": "minecraft:gold_ingot",
+    "p": "spartanweapons:dark_oak_pole",
+    "s": "spartanweapons:dark_oak_stick"
   },
   "pattern": [
     "iii",
@@ -18,7 +12,6 @@
     " s "
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:golden_dark_oak_battle_axe"
   }
 }

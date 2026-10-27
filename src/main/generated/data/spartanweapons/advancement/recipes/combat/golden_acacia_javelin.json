@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_acacia_javelin"
+        "recipes": "spartanweapons:golden_acacia_javelin"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

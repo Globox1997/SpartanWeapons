@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_mangrove_cutlass"
+        "recipes": "spartanweapons:golden_mangrove_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

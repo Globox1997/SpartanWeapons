@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_warped_glaive"
+        "recipes": "spartanweapons:iron_warped_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

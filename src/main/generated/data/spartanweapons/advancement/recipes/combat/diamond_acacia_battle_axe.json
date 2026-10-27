@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_acacia_battle_axe"
+        "recipes": "spartanweapons:diamond_acacia_battle_axe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

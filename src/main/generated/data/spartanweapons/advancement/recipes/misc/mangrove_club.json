@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:mangrove_club"
+        "recipes": "spartanweapons:mangrove_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

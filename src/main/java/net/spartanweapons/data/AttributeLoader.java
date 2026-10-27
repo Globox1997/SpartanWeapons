@@ -1,11 +1,11 @@
 package net.spartanweapons.data;
 
 import com.google.gson.JsonObject;
-import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
+import net.fabricmc.fabric.api.datagen.v1.FabricPackOutput;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataProvider;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.spartanweapons.init.ItemInit;
 
 import java.nio.file.Path;
@@ -15,10 +15,10 @@ import java.util.concurrent.CompletableFuture;
 
 public class AttributeLoader implements DataProvider {
 
-    private final FabricDataOutput dataOutput;
+    private final FabricPackOutput dataOutput;
     private final CompletableFuture<HolderLookup.Provider> registryLookup;
 
-    public AttributeLoader(FabricDataOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
+    public AttributeLoader(FabricPackOutput dataOutput, CompletableFuture<HolderLookup.Provider> registryLookup) {
         this.dataOutput = dataOutput;
         this.registryLookup = registryLookup;
     }
@@ -27,7 +27,7 @@ public class AttributeLoader implements DataProvider {
     public CompletableFuture<?> run(CachedOutput writer) {
 
         List<CompletableFuture<?>> futures = new ArrayList<>();
-        for (ResourceLocation identifier : ItemInit.ITEMS.keySet()) {
+        for (Identifier identifier : ItemInit.ITEMS.keySet()) {
             String path = identifier.getPath();
 
             if (path.contains("kunai")) {
@@ -51,7 +51,7 @@ public class AttributeLoader implements DataProvider {
         JsonObject json = new JsonObject();
         json.addProperty("parent", parentValue);
 
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(dataOutput.getModId(), weaponId);
+        Identifier id = Identifier.fromNamespaceAndPath(dataOutput.getModId(), weaponId);
         Path path = dataOutput.createPathProvider(net.minecraft.data.PackOutput.Target.DATA_PACK, "weapon_attributes").json(id);
 
         return DataProvider.saveStable(writer, json, path);

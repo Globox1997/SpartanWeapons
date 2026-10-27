@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_dark_oak_katana"
+        "recipes": "spartanweapons:golden_dark_oak_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

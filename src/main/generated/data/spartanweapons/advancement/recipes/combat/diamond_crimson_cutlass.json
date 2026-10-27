@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_crimson_cutlass"
+        "recipes": "spartanweapons:diamond_crimson_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

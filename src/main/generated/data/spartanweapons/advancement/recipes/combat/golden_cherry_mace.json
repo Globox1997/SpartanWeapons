@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_cherry_mace"
+        "recipes": "spartanweapons:golden_cherry_mace"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

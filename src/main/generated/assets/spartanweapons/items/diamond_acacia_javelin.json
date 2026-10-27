@@ -1,0 +1,14 @@
+{
+  "model": {
+    "type": "minecraft:condition",
+    "on_false": {
+      "type": "minecraft:model",
+      "model": "spartanweapons:item/diamond_acacia_javelin"
+    },
+    "on_true": {
+      "type": "minecraft:model",
+      "model": "spartanweapons:item/diamond_acacia_javelin_throwing"
+    },
+    "property": "minecraft:using_item"
+  }
+}

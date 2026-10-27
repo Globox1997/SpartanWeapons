@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_bamboo_scythe"
+        "recipes": "spartanweapons:golden_bamboo_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

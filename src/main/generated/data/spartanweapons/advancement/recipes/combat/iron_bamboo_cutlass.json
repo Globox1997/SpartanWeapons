@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_bamboo_cutlass"
+        "recipes": "spartanweapons:iron_bamboo_cutlass"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

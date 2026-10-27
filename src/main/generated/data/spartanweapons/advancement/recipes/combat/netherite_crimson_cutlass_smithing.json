@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:netherite_crimson_cutlass_smithing"
+        "recipes": "spartanweapons:netherite_crimson_cutlass_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

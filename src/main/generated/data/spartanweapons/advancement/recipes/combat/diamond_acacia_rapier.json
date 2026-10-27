@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_acacia_rapier"
+        "recipes": "spartanweapons:diamond_acacia_rapier"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

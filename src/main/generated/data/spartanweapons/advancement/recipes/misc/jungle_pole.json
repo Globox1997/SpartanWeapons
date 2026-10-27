@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:jungle_pole"
+        "recipes": "spartanweapons:jungle_pole"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

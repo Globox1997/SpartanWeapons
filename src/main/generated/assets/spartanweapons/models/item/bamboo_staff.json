@@ -1,6 +1,5 @@
 {
   "parent": "spartanweapons:item/staff",
-  "overrides": [],
   "textures": {
     "layer0": "spartanweapons:item/staffs/bamboo_staff"
   }

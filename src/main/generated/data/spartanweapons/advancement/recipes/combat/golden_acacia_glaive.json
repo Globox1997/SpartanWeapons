@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_acacia_glaive"
+        "recipes": "spartanweapons:golden_acacia_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

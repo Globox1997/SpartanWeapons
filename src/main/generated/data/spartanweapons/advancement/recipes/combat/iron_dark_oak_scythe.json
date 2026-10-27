@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_dark_oak_scythe"
+        "recipes": "spartanweapons:iron_dark_oak_scythe"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

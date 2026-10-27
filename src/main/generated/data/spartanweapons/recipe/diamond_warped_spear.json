@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:warped_pole"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:warped_pole"
   },
   "pattern": [
     "i",
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_warped_spear"
   }
 }

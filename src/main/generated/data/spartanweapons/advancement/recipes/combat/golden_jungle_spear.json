@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:golden_jungle_spear"
+        "recipes": "spartanweapons:golden_jungle_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_mangrove_dagger"
+        "recipes": "spartanweapons:iron_mangrove_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

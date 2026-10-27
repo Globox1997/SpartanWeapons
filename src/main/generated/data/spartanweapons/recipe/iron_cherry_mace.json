@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "b": {
-      "item": "minecraft:iron_block"
-    },
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:cherry_stick"
-    }
+    "b": "minecraft:iron_block",
+    "i": "minecraft:iron_ingot",
+    "s": "spartanweapons:cherry_stick"
   },
   "pattern": [
     "b",
@@ -18,7 +12,6 @@
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_cherry_mace"
   }
 }

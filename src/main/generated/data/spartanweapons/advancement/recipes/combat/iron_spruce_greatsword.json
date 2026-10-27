@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_spruce_greatsword"
+        "recipes": "spartanweapons:iron_spruce_greatsword"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

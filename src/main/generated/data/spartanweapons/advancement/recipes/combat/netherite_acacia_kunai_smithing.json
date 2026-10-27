@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:netherite_acacia_kunai_smithing"
+        "recipes": "spartanweapons:netherite_acacia_kunai_smithing"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

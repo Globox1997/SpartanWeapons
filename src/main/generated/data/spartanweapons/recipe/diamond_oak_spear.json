@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:oak_pole"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:oak_pole"
   },
   "pattern": [
     "i",
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_oak_spear"
   }
 }

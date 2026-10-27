@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:dark_oak_spear"
+        "recipes": "spartanweapons:dark_oak_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:crimson_club"
+        "recipes": "spartanweapons:crimson_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

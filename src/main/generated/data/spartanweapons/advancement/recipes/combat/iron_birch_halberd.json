@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_birch_halberd"
+        "recipes": "spartanweapons:iron_birch_halberd"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

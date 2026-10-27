@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Halberd extends SwordItem {
+public class Halberd extends Item {
 
-    public Halberd(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Halberd(Properties settings) {
+        super(settings);
     }
 
 }

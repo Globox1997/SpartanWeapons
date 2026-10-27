@@ -1,13 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:mangrove_planks"
-    },
-    "s": {
-      "item": "spartanweapons:mangrove_stick"
-    }
+    "b": "minecraft:mangrove_planks",
+    "s": "spartanweapons:mangrove_stick"
   },
   "pattern": [
     "s",
@@ -15,7 +10,6 @@
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:mangrove_staff"
   }
 }

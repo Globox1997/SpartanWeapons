@@ -2,19 +2,14 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "s": {
-      "item": "spartanweapons:birch_stick"
-    }
+    "i": "minecraft:diamond",
+    "s": "spartanweapons:birch_stick"
   },
   "pattern": [
     "i",
     "s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_birch_dagger"
   }
 }

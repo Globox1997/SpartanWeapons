@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_spruce_glaive"
+        "recipes": "spartanweapons:diamond_spruce_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

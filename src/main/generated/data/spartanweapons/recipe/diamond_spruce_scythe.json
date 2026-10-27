@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:spruce_pole"
-    },
-    "s": {
-      "item": "spartanweapons:spruce_stick"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:spruce_pole",
+    "s": "spartanweapons:spruce_stick"
   },
   "pattern": [
     " ii",
@@ -18,7 +12,6 @@
     "i s"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_spruce_scythe"
   }
 }

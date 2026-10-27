@@ -13,17 +13,17 @@ import org.spongepowered.asm.mixin.injection.ModifyConstant;
 @Mixin(Player.class)
 public abstract class PlayerEntityMixin {
 
-    @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"), index = 0)
+    @ModifyArg(method = "doSweepAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"), index = 0)
     private double attackSweepWidthXMixin(double x) {
         return x * getSweepRangeMultiplier();
     }
 
-    @ModifyArg(method = "attack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"), index = 2)
+    @ModifyArg(method = "doSweepAttack", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"), index = 2)
     private double attackSweepWidthZMixin(double z) {
         return z * getSweepRangeMultiplier();
     }
 
-    @ModifyConstant(method = "attack", constant = @Constant(doubleValue = 9.0D))
+    @ModifyConstant(method = "doSweepAttack", constant = @Constant(doubleValue = 9.0D))
     private double attackSweepDistanceMixin(double squaredDistance) {
         double multiplier = getSweepRangeMultiplier();
         return squaredDistance * multiplier * multiplier;

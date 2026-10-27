@@ -3,7 +3,7 @@
   "criteria": {
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:warped_club"
+        "recipes": "spartanweapons:warped_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     },

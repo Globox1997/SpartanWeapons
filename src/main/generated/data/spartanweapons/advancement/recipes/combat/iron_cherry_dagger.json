@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_cherry_dagger"
+        "recipes": "spartanweapons:iron_cherry_dagger"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

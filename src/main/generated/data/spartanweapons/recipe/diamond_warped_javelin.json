@@ -2,15 +2,9 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:diamond"
-    },
-    "p": {
-      "item": "spartanweapons:warped_pole"
-    },
-    "x": {
-      "item": "minecraft:slime_ball"
-    }
+    "i": "minecraft:diamond",
+    "p": "spartanweapons:warped_pole",
+    "x": "minecraft:slime_ball"
   },
   "pattern": [
     "i",
@@ -18,7 +12,6 @@
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:diamond_warped_javelin"
   }
 }

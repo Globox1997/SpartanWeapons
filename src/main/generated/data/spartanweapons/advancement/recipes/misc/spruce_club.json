@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:spruce_club"
+        "recipes": "spartanweapons:spruce_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

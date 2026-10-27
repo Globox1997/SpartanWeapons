@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_jungle_katana"
+        "recipes": "spartanweapons:iron_jungle_katana"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

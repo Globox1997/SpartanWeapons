@@ -1,13 +1,8 @@
 {
   "type": "minecraft:crafting_shaped",
-  "category": "misc",
   "key": {
-    "b": {
-      "item": "minecraft:spruce_planks"
-    },
-    "s": {
-      "item": "spartanweapons:spruce_stick"
-    }
+    "b": "minecraft:spruce_planks",
+    "s": "spartanweapons:spruce_stick"
   },
   "pattern": [
     "s  ",
@@ -15,7 +10,6 @@
     " sb"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:spruce_club"
   }
 }

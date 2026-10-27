@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_acacia_halberd"
+        "recipes": "spartanweapons:diamond_acacia_halberd"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

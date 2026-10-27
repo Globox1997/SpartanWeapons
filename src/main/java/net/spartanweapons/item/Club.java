@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Club extends SwordItem {
+public class Club extends Item {
 
-    public Club(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Club(Properties settings) {
+        super(settings);
     }
 
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:iron_bamboo_glaive"
+        "recipes": "spartanweapons:iron_bamboo_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

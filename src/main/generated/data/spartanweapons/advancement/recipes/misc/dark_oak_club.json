@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:dark_oak_club"
+        "recipes": "spartanweapons:dark_oak_club"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

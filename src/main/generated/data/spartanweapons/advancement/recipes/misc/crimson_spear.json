@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:crimson_spear"
+        "recipes": "spartanweapons:crimson_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

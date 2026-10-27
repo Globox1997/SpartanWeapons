@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:gold_ingot"
-    },
-    "p": {
-      "item": "spartanweapons:spruce_pole"
-    }
+    "i": "minecraft:gold_ingot",
+    "p": "spartanweapons:spruce_pole"
   },
   "pattern": [
     "i",
@@ -15,7 +11,6 @@
     "p"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:golden_spruce_glaive"
   }
 }

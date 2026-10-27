@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:jungle_staff"
+        "recipes": "spartanweapons:jungle_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:diamond_mangrove_glaive"
+        "recipes": "spartanweapons:diamond_mangrove_glaive"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

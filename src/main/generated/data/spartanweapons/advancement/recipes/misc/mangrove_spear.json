@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:mangrove_spear"
+        "recipes": "spartanweapons:mangrove_spear"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

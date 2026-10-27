@@ -59,6 +59,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public int mace_attack_damage = 9;
      @ConfigEntry.Gui.RequiresRestart
      public float mace_attack_speed = -3.2f;
+     @ConfigEntry.Gui.RequiresRestart
      public boolean mace_disables_shield = true;
 
      @ConfigEntry.Gui.RequiresRestart
@@ -118,6 +119,7 @@ public class SpartanWeaponsConfig implements ConfigData {
      public int club_attack_damage = 4;
      @ConfigEntry.Gui.RequiresRestart
      public float club_attack_speed = -3.2f;
+     @ConfigEntry.Gui.RequiresRestart
      public boolean club_disables_shield = true;
 
      @ConfigEntry.Gui.RequiresRestart

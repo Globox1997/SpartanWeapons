@@ -2,12 +2,8 @@
   "type": "minecraft:crafting_shaped",
   "category": "equipment",
   "key": {
-    "i": {
-      "item": "minecraft:iron_ingot"
-    },
-    "s": {
-      "item": "spartanweapons:spruce_stick"
-    }
+    "i": "minecraft:iron_ingot",
+    "s": "spartanweapons:spruce_stick"
   },
   "pattern": [
     " i ",
@@ -15,7 +11,6 @@
     "isi"
   ],
   "result": {
-    "count": 1,
     "id": "spartanweapons:iron_spruce_greatsword"
   }
 }

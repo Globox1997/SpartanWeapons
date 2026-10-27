@@ -1,12 +1,11 @@
 package net.spartanweapons.item;
 
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.Item;
 
-public class Scythe extends SwordItem {
+public class Scythe extends Item {
 
-    public Scythe(Tier toolMaterial, Properties settings) {
-        super(toolMaterial, settings);
+    public Scythe(Properties settings) {
+        super(settings);
     }
 
 }

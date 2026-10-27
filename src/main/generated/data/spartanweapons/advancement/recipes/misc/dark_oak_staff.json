@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "spartanweapons:dark_oak_staff"
+        "recipes": "spartanweapons:dark_oak_staff"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
